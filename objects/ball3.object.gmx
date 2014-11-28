@@ -46,7 +46,7 @@ if(keyboard_check(ord('S')) &amp;&amp; place_free(x,y+8))
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="dFloorObject">
+    <event eventtype="4" ename="floorObject">
       <action>
         <libid>1</libid>
         <id>115</id>
@@ -72,7 +72,7 @@ if(keyboard_check(ord('S')) &amp;&amp; place_free(x,y+8))
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="floorObject">
+    <event eventtype="4" ename="dFloorObject">
       <action>
         <libid>1</libid>
         <id>115</id>

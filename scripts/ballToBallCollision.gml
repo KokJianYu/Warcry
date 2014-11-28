@@ -20,4 +20,3 @@ changeInY = rVy*1;
 
 argument0.hspeed+=changeInX;
 argument0.vspeed+=changeInY;
-
