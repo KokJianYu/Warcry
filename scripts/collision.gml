@@ -1,4 +1,5 @@
 //ballToBallCollision(mBall,cuVx,cuVy,DIFFVx,DIFFVy)
+//This method bounce the colliding balls
 
 Vx = argument3;
 Vy = argument4;
