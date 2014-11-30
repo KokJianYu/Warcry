@@ -33,7 +33,10 @@ grabbedBy = -1;
 
 oldX = x;
 oldY = y;
-moveOutsideSolidNextStep=false;
+
+collidedWithBall = false;
+
+
 </string>
           </argument>
         </arguments>
@@ -93,10 +96,11 @@ if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
 else
     sprite_index = sprite_ball;
     
+if(!collidedWithBall)    
+    checkForBallCollision();
     
-    
-checkForBallCollision();
-
+if(!place_meeting(x+hspeed,y+vspeed,ball))
+    collidedWithBall = false;
     
 if(grabbedBy != -1)
 {
@@ -109,61 +113,11 @@ if(grabbedBy != -1)
 else
 {
     move_bounce_solid(true);
+    //move_outside_all(radtodeg(arctan2(vspeed,hspeed)),maxSpeed);
 }
 
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="ball">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-/*
-Vx = hspeed;
-Vy = vspeed;
-
-//noToNormalise = sqrt(power(vx,2) + power(vy,2));
-
-//uVx = vx/noToNormalise;
-//uVy = vy/noToNormalise;
-
-cVx = other.x - x;
-cVy = other.y - y;
-
-
-noToNormalise = sqrt(power(cVx,2) + power(cVy,2));
-cuVx = cVx/noToNormalise;
-cuVy = cVy/noToNormalise;
-
-dotProduct = cuVx*Vx + cuVy*Vy;
-
-rVx = dotProduct*cuVx;
-rVy = dotProduct*cuVy;
-
-changeInX = rVx*1*cuVx;
-changeInY = rVy*1*cuVy;
-
-hspeed+=changeInX;
-vspeed+=changeInY;
-*/
 </string>
           </argument>
         </arguments>

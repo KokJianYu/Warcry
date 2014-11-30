@@ -30,5 +30,6 @@ if(place_meeting(x+hspeed,y+vspeed,ball))
     //Call the collision method for both the balls.
     collision(self,cuVx,cuVy,Vx,Vy);
     collision(collidingBall,-cuVx,-cuVy,-Vx,-Vy);
+    collidedWithBall = true;
     }
 }
