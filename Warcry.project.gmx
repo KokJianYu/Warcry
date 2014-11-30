@@ -12,6 +12,7 @@
     <sprite>sprites\floor01</sprite>
     <sprite>sprites\sprite_ball</sprite>
     <sprite>sprites\sprite_greenBall</sprite>
+    <sprite>sprites\sprite_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -19,6 +20,9 @@
     <script>scripts\grabBall.gml</script>
     <script>scripts\collision.gml</script>
     <script>scripts\checkForBallCollision.gml</script>
+	<script>scripts\script_get_gamepad_input.gml</script>
+    <script>scripts\script_move_axis.gml</script>
+    <script>scripts\script_rotate_player.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_dWall</object>
@@ -27,6 +31,7 @@
     <object>objects\obj_wall</object>
     <object>objects\ball2</object>
     <object>objects\ball</object>
+    <object>objects\obj_player</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
