@@ -27,15 +27,15 @@
             <kind>1</kind>
             <string>mass = 1;
 
-maxSpeed = 10;
-friction = maxSpeed/60/4;
+maxSpeed = 30;
+//friction = maxSpeed/60/4;
 grabbedBy = -1;
 
 oldX = x;
 oldY = y;
 
 collidedWithBall = false;
-
+ballCollidedWithId = -1;
 
 </string>
           </argument>
@@ -96,12 +96,19 @@ if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
 else
     sprite_index = sprite_ball;
     
-if(!collidedWithBall)    
+//Check if the ball is currently colliding with another ball.
+// or if it is grabbed. 
+if(!collidedWithBall &amp;&amp; grabbedBy == -1)    
     checkForBallCollision();
     
 if(!place_meeting(x+hspeed,y+vspeed,ball))
+{
     collidedWithBall = false;
-    
+    ballCollidedWithId = -1;
+}
+ 
+//This if else statement prevents the ball from being blocked by
+//objects when it is grabbed.   
 if(grabbedBy != -1)
 {
     var lengthRequired =  sprite_width + 6;

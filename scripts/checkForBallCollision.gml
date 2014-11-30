@@ -7,7 +7,10 @@ if(place_meeting(x+hspeed,y+vspeed,ball))
     //when a ball collide with a ball
     //as the collision event occurs twice
     //when the ball collide with the ball
-    if(self.id<collidingBall.id)
+    //This also help prevent ball from getting
+    //stuck in each other as the collision 
+    //will not work if they are stuck within each other.
+    if(self.id!=other.ballCollidedWithId)
     {
     //Getting VDiff for 2 colliding objects
     //speed of this object over colliding object
@@ -32,4 +35,6 @@ if(place_meeting(x+hspeed,y+vspeed,ball))
     collision(collidingBall,-cuVx,-cuVy,-Vx,-Vy);
     collidedWithBall = true;
     }
+    ballCollidedWithId = collidingBall.id;
+        
 }
