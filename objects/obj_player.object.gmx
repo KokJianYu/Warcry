@@ -3,7 +3,7 @@
   <spriteName>sprite_player</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -52,7 +52,7 @@ yAxis = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gamepad_set_vibration(1,0,0);
+            <string>gamepad_set_vibration(0,0,0);
 </string>
           </argument>
         </arguments>
