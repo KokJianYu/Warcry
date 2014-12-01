@@ -9,10 +9,10 @@ var device = argument4;
 
 //Move character to possible spaces
 if(magnitude >= threshold){
-    if(!place_meeting(x+xAxis*spd,y+yAxis*spd,obj_dWall) || !place_meeting(x+xAxis*spd,y+yAxis*spd,obj_wall)){
+    //if(!place_meeting(x+xAxis*spd,y+yAxis*spd,obj_dWall) || !place_meeting(x+xAxis*spd,y+yAxis*spd,obj_wall)){
         x+=xAxis*spd;
         y+=yAxis*spd;
-    }
+    /*}
     else
     if(!place_meeting(x+xAxis*spd,y,obj_dWall) || !place_meeting(x+xAxis*spd,y,obj_wall)){
         x+=xAxis*spd;
@@ -21,7 +21,7 @@ if(magnitude >= threshold){
     if(!place_meeting(x,y+xAxis*spd,obj_dWall) || !place_meeting(x,y+xAxis*spd,obj_wall)){
         y+=yAxis*spd;
     }
-    else
+    else*/
     if(place_meeting(x,y,obj_dWall) || place_meeting(x,y,obj_wall)){
         gamepad_set_vibration(device,1,1);
         alarm[0] =  15;
