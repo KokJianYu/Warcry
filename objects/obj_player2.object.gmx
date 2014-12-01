@@ -32,6 +32,12 @@ yAxis = 0;
 
 grabbedBall = -1;
 
+mass = 5;
+friction = 0.1;
+
+changeInX = 0;
+changeInY = 0;
+directionOfCollision = 0;
 </string>
           </argument>
         </arguments>
@@ -90,6 +96,14 @@ if(gamepad_button_value(1, gp_shoulderl))
 {
     grabBall();     
 }
+
+if(gamepad_button_value(1, gp_shoulderr)){
+    script_throw_ball();    
+}
+
+currentSpeed = sqrt(power(hspeed,2) + power(vspeed,2));
+hspeed = cos(directionOfCollision)*currentSpeed;
+vspeed = sin(directionOfCollision)*currentSpeed;
 </string>
           </argument>
         </arguments>

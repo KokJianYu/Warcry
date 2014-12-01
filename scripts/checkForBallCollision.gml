@@ -3,6 +3,8 @@
 if(place_meeting(x+hspeed,y+vspeed,ball))
 {
     var collidingBall = instance_place(x+hspeed,y+vspeed,ball);
+    
+    totalMass = mass+collidingBall.mass;
     //To ensure that this code run only once 
     //when a ball collide with a ball
     //as the collision event occurs twice

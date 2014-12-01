@@ -21,10 +21,12 @@
   <scripts name="scripts">
     <script>scripts\grabBall.gml</script>
     <script>scripts\collision.gml</script>
+    <script>scripts\checkForCharacterCollision.gml</script>
     <script>scripts\checkForBallCollision.gml</script>
     <script>scripts\script_get_gamepad_input.gml</script>
     <script>scripts\script_move_axis.gml</script>
     <script>scripts\script_rotate_player.gml</script>
+    <script>scripts\script_throw_ball.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_dWall</object>
@@ -34,7 +36,7 @@
     <object>objects\ball2</object>
     <object>objects\ball</object>
     <object>objects\obj_player</object>
-    <object>objects\spritre_player2</object>
+    <object>objects\obj_player2</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

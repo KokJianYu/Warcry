@@ -28,7 +28,7 @@
             <string>mass = 1;
 
 maxSpeed = 30;
-//friction = maxSpeed/60/4;
+friction = maxSpeed/60/4;
 grabbedBy = -1;
 
 oldX = x;
@@ -100,6 +100,45 @@ else
 // or if it is grabbed. 
 if(!collidedWithBall &amp;&amp; grabbedBy == -1)    
     checkForBallCollision();
+if((hspeed&gt;0 || vspeed&gt;0 || hspeed&lt;0 || vspeed&lt;0))
+{
+    //This method check if there are collision between characters.
+if(place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2))
+{
+    var collidingCharacter = instance_place(x+hspeed,y+vspeed,obj_player);
+    if(collidingCharacter == noone)
+        collidingCharacter = instance_place(x+hspeed,y+vspeed,obj_player2);
+        
+    totalMass = mass + collidingCharacter.mass;
+    //Getting VDiff for 2 colliding objects
+    //speed of this object over colliding object
+    //in order to get the speed in the direction
+    // of the this object
+    
+    Vx = self.hspeed;
+    Vy = self.vspeed;
+    
+    //Get the colliding vector in the direction of
+    //this object to colliding object
+    cVx = collidingCharacter.x - x;
+    cVy = collidingCharacter.y - y;
+    //normalise colliding vector
+    noToNormalise = sqrt(power(cVx,2) + power(cVy,2));
+    cuVx = cVx/noToNormalise;
+    cuVy = cVy/noToNormalise;
+    
+    //Call the collision method for both the balls.
+    collision(self,cuVx,cuVy,Vx,Vy);
+    collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy);
+    test = radtodeg(arctan2(hspeed,-vspeed));
+    collidingCharacter.directionOfCollision = radtodeg(arctan2(hspeed,-vspeed))-direction;
+}
+}
+
+if(!place_meeting(x+hspeed,y+vspeed,obj_player) &amp;&amp; !place_meeting(x+hspeed,y+vspeed,obj_player) )
+{
+    collidedWithCharacter = false;
+}
     
 if(!place_meeting(x+hspeed,y+vspeed,ball))
 {
@@ -113,7 +152,6 @@ if(grabbedBy != -1)
 {
 
     var lengthRequired =  sprite_width + 6;
-    testDirection = grabbedBy.direction;
     x = grabbedBy.x + cos(degtorad(grabbedBy.direction))*lengthRequired;
     y = grabbedBy.y - sin(degtorad(grabbedBy.direction))*lengthRequired; // y-axis is reversed
     vspeed = 0;

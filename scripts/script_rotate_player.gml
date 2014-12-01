@@ -1,4 +1,4 @@
-///scr_rotate_plzyer(rightXAxis,rightYAxis,threshold,spd)
+    ///scr_rotate_plzyer(rightXAxis,rightYAxis,threshold,spd)
 
 var rightXAxis = argument0;
 var rightYAxis = argument1;
