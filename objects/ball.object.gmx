@@ -28,7 +28,7 @@
             <string>mass = 1;
 
 maxSpeed = 30;
-friction = maxSpeed/60/4;
+//friction = maxSpeed/60/4;
 grabbedBy = -1;
 
 oldX = x;
@@ -100,42 +100,12 @@ else
 // or if it is grabbed. 
 if(!collidedWithBall &amp;&amp; grabbedBy == -1)    
     checkForBallCollision();
-if((hspeed&gt;0 || vspeed&gt;0 || hspeed&lt;0 || vspeed&lt;0))
+if((speed&gt;0) &amp;&amp; !collidedWithCharacter)
 {
-    //This method check if there are collision between characters.
-if(place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2))
-{
-    var collidingCharacter = instance_place(x+hspeed,y+vspeed,obj_player);
-    if(collidingCharacter == noone)
-        collidingCharacter = instance_place(x+hspeed,y+vspeed,obj_player2);
-        
-    totalMass = mass + collidingCharacter.mass;
-    //Getting VDiff for 2 colliding objects
-    //speed of this object over colliding object
-    //in order to get the speed in the direction
-    // of the this object
-    
-    Vx = self.hspeed;
-    Vy = self.vspeed;
-    
-    //Get the colliding vector in the direction of
-    //this object to colliding object
-    cVx = collidingCharacter.x - x;
-    cVy = collidingCharacter.y - y;
-    //normalise colliding vector
-    noToNormalise = sqrt(power(cVx,2) + power(cVy,2));
-    cuVx = cVx/noToNormalise;
-    cuVy = cVy/noToNormalise;
-    
-    //Call the collision method for both the balls.
-    collision(self,cuVx,cuVy,Vx,Vy);
-    collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy);
-    test = radtodeg(arctan2(hspeed,-vspeed));
-    collidingCharacter.directionOfCollision = radtodeg(arctan2(hspeed,-vspeed))-direction;
-}
+    checkForCharacterCollision();
 }
 
-if(!place_meeting(x+hspeed,y+vspeed,obj_player) &amp;&amp; !place_meeting(x+hspeed,y+vspeed,obj_player) )
+if(!place_meeting(x+hspeed,y+vspeed,obj_player) &amp;&amp; !place_meeting(x+hspeed,y+vspeed,obj_player2) )
 {
     collidedWithCharacter = false;
 }
@@ -165,6 +135,29 @@ else
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(900,300,radtodeg(arctan2(-vspeed,hspeed)));
 </string>
           </argument>
         </arguments>

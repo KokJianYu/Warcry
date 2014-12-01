@@ -15,6 +15,7 @@ if(place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspee
     Vx = self.hspeed;
     Vy = self.vspeed;
     
+    
     //Get the colliding vector in the direction of
     //this object to colliding object
     cVx = collidingCharacter.x - x;
@@ -23,12 +24,13 @@ if(place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspee
     noToNormalise = sqrt(power(cVx,2) + power(cVy,2));
     cuVx = cVx/noToNormalise;
     cuVy = cVy/noToNormalise;
-    
+
+    //collidingCharacter.directionOfCollision = point_direction(0,0,0+hspeed,0+vspeed);
     //Call the collision method for both the balls.
     collision(self,cuVx,cuVy,Vx,Vy);
     collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy);
+    collidingCharacter.directionOfCollision = radtodeg(arctan2(-(collidingCharacter.vspeed),collidingCharacter.hspeed));
+    collidedByCharacter = true;
     
-    collidingCharacter.directionOfCollision = radtodeg(arctan2(hspeed,-vspeed))-direction;
 }
         
-

@@ -38,6 +38,8 @@ friction = 0.1;
 changeInX = 0;
 changeInY = 0;
 directionOfCollision = 0;
+
+damage = 0;
 </string>
           </argument>
         </arguments>
@@ -89,7 +91,7 @@ script_move_axis(xAxis, yAxis, .25, 4, 1);
 
 script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
-image_angle = direction;
+//image_angle = direction;
 
 //if(keyboard_check(ord('W')))
 if(gamepad_button_value(1, gp_shoulderl))
@@ -102,8 +104,8 @@ if(gamepad_button_value(1, gp_shoulderr)){
 }
 
 currentSpeed = sqrt(power(hspeed,2) + power(vspeed,2));
-hspeed = cos(directionOfCollision)*currentSpeed;
-vspeed = sin(directionOfCollision)*currentSpeed;
+hspeed = cos(degtorad(directionOfCollision))*currentSpeed;
+vspeed = -sin(degtorad(directionOfCollision))*currentSpeed;
 </string>
           </argument>
         </arguments>
