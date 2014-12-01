@@ -9,7 +9,7 @@ var device = argument4;
 
 //Move character to possible spaces
 if(magnitude >= threshold){
-   // if(!place_meeting(x+xAxis*spd,y+yAxis*spd,obj_dWall) || !place_meeting(x+xAxis*spd,y+yAxis*spd,obj_wall)){
+    //if(!place_meeting(x+xAxis*spd,y+yAxis*spd,obj_dWall) || !place_meeting(x+xAxis*spd,y+yAxis*spd,obj_wall)){
         x+=xAxis*spd;
         y+=yAxis*spd;
     /*}
@@ -26,4 +26,6 @@ if(magnitude >= threshold){
         gamepad_set_vibration(device,1,1);
         alarm[0] =  15;
     }
+
 }
+
