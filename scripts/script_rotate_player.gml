@@ -9,5 +9,5 @@ var magnitude = point_distance(0,0,rightXAxis,rightYAxis);
 
 //Turn Character
 if(magnitude >= threshold){
-    direction =  point_direction(0,0,rightXAxis,rightYAxis)-90;
+    direction =  point_direction(0,0,rightXAxis,rightYAxis);
 }

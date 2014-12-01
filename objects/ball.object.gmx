@@ -111,9 +111,11 @@ if(!place_meeting(x+hspeed,y+vspeed,ball))
 //objects when it is grabbed.   
 if(grabbedBy != -1)
 {
+
     var lengthRequired =  sprite_width + 6;
-    x = grabbedBy.x + cos(grabbedBy.direction)*lengthRequired;
-    y = grabbedBy.y + sin(grabbedBy.direction)*lengthRequired;
+    testDirection = grabbedBy.direction;
+    x = grabbedBy.x + cos(degtorad(grabbedBy.direction))*lengthRequired;
+    y = grabbedBy.y - sin(degtorad(grabbedBy.direction))*lengthRequired; // y-axis is reversed
     vspeed = 0;
     hspeed = 0;
 }

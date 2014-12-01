@@ -68,19 +68,7 @@ if(keyboard_check(vk_down) &amp;&amp; place_free(x,y+5) &amp;&amp; !place_meetin
 
 if(keyboard_check(ord('W')))
 {
-    if(grabbedBall == -1) // Check if a ball is grabbed
-    {
-        var nearestBall = instance_nearest(x,y,ball);
-        if(distance_to_object(nearestBall)&lt;32)
-        {
-            //TODO: Grab the ball
-            if(nearestBall.grabbedBy == -1)//Something is wrong if this occurs
-            {
-            grabbedBall = nearestBall;
-            nearestBall.grabbedBy = self.id;
-            }
-        }
-    }      
+    grabBall();
 }
 </string>
           </argument>
