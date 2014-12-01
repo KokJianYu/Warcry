@@ -26,6 +26,4 @@ if(magnitude >= threshold){
         gamepad_set_vibration(device,1,1);
         alarm[0] =  15;
     }
-
 }
-
