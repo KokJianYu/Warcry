@@ -59,7 +59,7 @@ ballCollidedWithId = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/*
 if(keyboard_check(vk_right) &amp;&amp; place_free(x+8,y))
 {
 if(hspeed&lt;10)
@@ -79,7 +79,7 @@ if(keyboard_check(vk_down) &amp;&amp; place_free(x,y+8))
 {
 if(vspeed&lt;10)
     vspeed=10;
-}
+}*/
 
 
 //This reduces speed to the max speed indicated.
@@ -89,12 +89,6 @@ if(power(vspeed,2)+power(hspeed,2)&gt;power(maxSpeed,2))
     hspeed = hspeed/sqrt(power(vspeed,2)+power(hspeed,2))*maxSpeed;
 }
     
-if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
-{
-    sprite_index = sprite_greenBall;
-}
-else
-    sprite_index = sprite_ball;
     
 //Check if the ball is currently colliding with another ball.
 // or if it is grabbed. 
@@ -111,9 +105,12 @@ if(!place_meeting(x+hspeed,y+vspeed,ball))
 //objects when it is grabbed.   
 if(grabbedBy != -1)
 {
-    var lengthRequired =  sprite_width + 6;
-    x = grabbedBy.x + cos(grabbedBy.direction)*lengthRequired;
-    y = grabbedBy.y + sin(grabbedBy.direction)*lengthRequired;
+    var lengthRequired =  grabbedBy.sprite_width + 6;
+    testDir = grabbedBy.direction;
+    testCos = cos(grabbedBy.direction);
+    testSin = sin(grabbedBy.direction);
+    x = grabbedBy.x + cos(degtorad(grabbedBy.direction))*lengthRequired;
+    y = grabbedBy.y - sin(degtorad(grabbedBy.direction))*lengthRequired;    //y axis is reversed
     vspeed = 0;
     hspeed = 0;
 }
@@ -122,6 +119,13 @@ else
     move_bounce_solid(true);
     //move_outside_all(radtodeg(arctan2(vspeed,hspeed)),maxSpeed);
 }
+
+if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
+{
+    sprite_index = sprite_greenBall;
+}
+else
+    sprite_index = sprite_ball;
 
 
 
