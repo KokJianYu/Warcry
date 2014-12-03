@@ -251,11 +251,7 @@
     <option_screenkey>True</option_screenkey>
     <option_screenshotkey>true</option_screenshotkey>
     <option_shortcircuit>True</option_shortcircuit>
-<<<<<<< HEAD
-    <option_showcursor>True</option_showcursor>
-=======
     <option_showcursor>False</option_showcursor>
->>>>>>> ea5f9e62952d81be326dbc63af1892978f2e1ace
     <option_showprogress>1</option_showprogress>
     <option_sizeable>True</option_sizeable>
     <option_stayontop>false</option_stayontop>
