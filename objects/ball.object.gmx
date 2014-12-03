@@ -28,7 +28,7 @@
             <string>mass = 1;
 
 maxSpeed = 30;
-//friction = maxSpeed/60/4;
+friction = maxSpeed/60/4;
 grabbedBy = -1;
 
 oldX = x;
@@ -63,22 +63,22 @@ ballCollidedWithId = -1;
 if(keyboard_check(vk_right) &amp;&amp; place_free(x+8,y))
 {
 if(hspeed&lt;10)
-    hspeed=10;
+    hspeed=30;
 }
 if(keyboard_check(vk_left) &amp;&amp; place_free(x,y))
 {
 if(hspeed&gt;-10)
-    hspeed=-10;
+    hspeed=-30;
 }
 if(keyboard_check(vk_up) &amp;&amp; place_free(x,y-8))
 {
 if(vspeed&gt;-10)
-    vspeed=-10;
+    vspeed=-30;
 }
 if(keyboard_check(vk_down) &amp;&amp; place_free(x,y+8))
 {
 if(vspeed&lt;10)
-    vspeed=10;
+    vspeed=30;
 }
 
 
@@ -90,13 +90,14 @@ if(power(vspeed,2)+power(hspeed,2)&gt;power(maxSpeed,2))
 }
     
 //This change the ball sprite according to its speed
-if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
+if(speed  &lt;= maxSpeed*0.35)
 {
     sprite_index = sprite_greenBall;
 }
+else if(speed &lt;= maxSpeed*0.5)
+    sprite_index = sprite_yellowBall;
 else
-    sprite_index = sprite_ball;
-    
+    sprite_index = sprite_redBall;
 //Check if the ball is going to collide with another ball.
 if(place_meeting(x+hspeed,y+vspeed,ball))   
 {

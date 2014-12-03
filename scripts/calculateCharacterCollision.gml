@@ -24,6 +24,11 @@
     cuVx = cVx/noToNormalise;
     cuVy = cVy/noToNormalise;
 
+    
+    //Ensure that block only work when user face the ball when blocking.
+    if(collidingCharacter.direction-90>direction - 180 && collidingCharacter.directionOfCollision+90<collidingCharacter.direction+180)
+        block = 1;
+        
     collidingCharacter.damage += (speed/maxSpeed)*40*collidingCharacter.block;
     //collidingCharacter.directionOfCollision = point_direction(0,0,0+hspeed,0+vspeed);
     //Call the collision method for both the balls.
@@ -31,5 +36,3 @@
     collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy,false);
     collidingCharacter.directionOfCollision = radtodeg(arctan2(-(collidingCharacter.ySpeed),collidingCharacter.xSpeed));
     collidedByCharacter = true;
-
-        
