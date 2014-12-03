@@ -11,6 +11,8 @@
     <sprite>sprites\realFloor</sprite>
     <sprite>sprites\floor01</sprite>
     <sprite>sprites\sprite_ball</sprite>
+    <sprite>sprites\sprite_yellowBall</sprite>
+    <sprite>sprites\sprite_redBall</sprite>
     <sprite>sprites\sprite9</sprite>
     <sprite>sprites\sprite_greenBall</sprite>
     <sprite>sprites\sprite_player</sprite>
