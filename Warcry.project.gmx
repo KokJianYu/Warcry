@@ -17,6 +17,15 @@
     <sprite>sprites\sprite_greenBall</sprite>
     <sprite>sprites\sprite_player</sprite>
     <sprite>sprites\sprite_player2</sprite>
+    <sprites name="Main Menu">
+      <sprite>sprites\sprite_menu</sprite>
+    </sprites>
+    <sprites name="Pause Menu">
+      <sprite>sprites\sprite_continue</sprite>
+      <sprite>sprites\sprite_option</sprite>
+      <sprite>sprites\sprite_end</sprite>
+      <sprite>sprites\spr_backdrop</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -39,9 +48,17 @@
     <object>objects\ball</object>
     <object>objects\obj_player</object>
     <object>objects\obj_player2</object>
+    <objects name="Main Menu">
+      <object>objects\obj_menus</object>
+    </objects>
+    <objects name="Pause Menu">
+      <object>objects\obj_room_controller</object>
+      <object>objects\obj_pause_menu_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\room_menu</room>
+    <room>rooms\room_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
