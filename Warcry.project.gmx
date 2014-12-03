@@ -28,10 +28,11 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\calculateCharacterSpeed.gml</script>
     <script>scripts\grabBall.gml</script>
     <script>scripts\collision.gml</script>
-    <script>scripts\checkForCharacterCollision.gml</script>
-    <script>scripts\checkForBallCollision.gml</script>
+    <script>scripts\calculateCharacterCollision.gml</script>
+    <script>scripts\calculateBallCollision.gml</script>
     <script>scripts\script_get_gamepad_input.gml</script>
     <script>scripts\script_move_axis.gml</script>
     <script>scripts\script_rotate_player.gml</script>
@@ -42,7 +43,6 @@
     <object>objects\realFloorObject</object>
     <object>objects\diagonalRealFloorObject</object>
     <object>objects\obj_wall</object>
-    <object>objects\ball2</object>
     <object>objects\ball</object>
     <object>objects\obj_player</object>
     <object>objects\obj_player2</object>
