@@ -170,6 +170,7 @@
     <instance objName="obj_player" x="192" y="352" name="inst_F96A65D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_room_controller" x="0" y="0" name="inst_C331F29C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player2" x="288" y="192" name="inst_89DFD39C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="skill_Bar1" x="32" y="0" name="inst_1052B6EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

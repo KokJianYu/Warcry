@@ -55,6 +55,7 @@
       <object>objects\obj_room_controller</object>
       <object>objects\obj_pause_menu_controller</object>
     </objects>
+    <object>objects\skill_Bar1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_menu</room>

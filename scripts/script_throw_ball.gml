@@ -2,9 +2,9 @@
 //This allows the character to throw the ball
 
 //TODO: power gauge
-powerGauge = 100;
+//powerGauge = 100;
 if(grabbedBall != -1){
-    speedOfBall = grabbedBall.maxSpeed * (powerGauge/100);
+    speedOfBall = grabbedBall.maxSpeed * (releasePower/100);
     grabbedBall.hspeed = cos(degtorad(direction))*speedOfBall;
     grabbedBall.vspeed = -sin(degtorad(direction))*speedOfBall;
     grabbedBall.grabbedBy = -1;
