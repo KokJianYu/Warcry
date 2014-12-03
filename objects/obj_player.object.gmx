@@ -95,8 +95,7 @@ script_rotate_player(rightXAxis,rightYAxis,.25,5);
 //image_angle = direction;
 
 
-//if(gamepad_button_value(0,gp_shoulderl))
-if(keyboard_check(ord('W')))
+if(gamepad_button_value(0,gp_shoulderl) || keyboard_check(ord('W')))
 {
     grabBall();  
 }
