@@ -89,6 +89,7 @@ if(power(vspeed,2)+power(hspeed,2)&gt;power(maxSpeed,2))
     hspeed = hspeed/sqrt(power(vspeed,2)+power(hspeed,2))*maxSpeed;
 }
     
+//This change the ball sprite according to its speed
 if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
 {
     sprite_index = sprite_greenBall;
@@ -96,26 +97,26 @@ if(power(vspeed,2)+power(hspeed,2) &lt;= maxSpeed*0.35)
 else
     sprite_index = sprite_ball;
     
-//Check if the ball is currently colliding with another ball.
-// or if it is grabbed. 
-if(!collidedWithBall &amp;&amp; grabbedBy == -1)    
-    checkForBallCollision();
-if((speed&gt;0) &amp;&amp; !collidedWithCharacter)
+//Check if the ball is going to collide with another ball.
+if(place_meeting(x+hspeed,y+vspeed,ball))   
 {
-    checkForCharacterCollision();
+    if(!collidedWithBall) //If the ball is not already colliding with another ball 
+        calculateBallCollision();
 }
-
-if(!place_meeting(x+hspeed,y+vspeed,obj_player) &amp;&amp; !place_meeting(x+hspeed,y+vspeed,obj_player2) )
-{
-    collidedWithCharacter = false;
-}
-    
-if(!place_meeting(x+hspeed,y+vspeed,ball))
+else
 {
     collidedWithBall = false;
     ballCollidedWithId = -1;
 }
- 
+//
+if((speed&gt;0) &amp;&amp; (place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2)) &amp;&amp; grabbedBy == -1)
+{
+    if(!collidedWithCharacter)
+        calculateCharacterCollision();
+}
+else
+   collidedWithCharacter = false;
+
 //This if else statement prevents the ball from being blocked by
 //objects when it is grabbed.   
 if(grabbedBy != -1)
@@ -130,7 +131,6 @@ if(grabbedBy != -1)
 else
 {
     move_bounce_solid(true);
-    //move_outside_all(radtodeg(arctan2(vspeed,hspeed)),maxSpeed);
 }
 
 

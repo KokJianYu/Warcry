@@ -1,9 +1,10 @@
 //checkForBallCollision()
 //This method check if there are collision between balls.
-if(place_meeting(x+hspeed,y+vspeed,ball))
-{
+
     var collidingBall = instance_place(x+hspeed,y+vspeed,ball);
     
+    if(collidingBall.grabbedBy == -1 && grabbedBy == -1)
+    {
     totalMass = mass+collidingBall.mass;
     //To ensure that this code run only once 
     //when a ball collide with a ball
@@ -33,10 +34,9 @@ if(place_meeting(x+hspeed,y+vspeed,ball))
     cuVy = cVy/noToNormalise;
     
     //Call the collision method for both the balls.
-    collision(self,cuVx,cuVy,Vx,Vy);
-    collision(collidingBall,-cuVx,-cuVy,-Vx,-Vy);
+    collision(self,cuVx,cuVy,Vx,Vy,true);
+    collision(collidingBall,-cuVx,-cuVy,-Vx,-Vy,true);
     collidedWithBall = true;
     }
     ballCollidedWithId = collidingBall.id;
-        
-}
+    }

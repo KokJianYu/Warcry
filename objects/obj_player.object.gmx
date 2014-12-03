@@ -31,14 +31,15 @@ xAxis = 0;
 yAxis = 0;
 
 grabbedBall = -1;
-mass = 5;
+mass = 20;
 
 friction = 0.1;
 
-changeInX = 0;
-changeInY = 0;
 directionOfCollision = 0;
 
+xSpeed = 0;
+ySpeed = 0;
+block = 1;
 damage = 0;
 </string>
           </argument>
@@ -93,7 +94,9 @@ script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
 //image_angle = direction;
 
-if(gamepad_button_value(0,gp_shoulderl))
+
+//if(gamepad_button_value(0,gp_shoulderl))
+if(keyboard_check(ord('W')))
 {
     grabBall();  
 }
@@ -102,39 +105,16 @@ if(gamepad_button_value(0, gp_shoulderr)){
     script_throw_ball();    
 }
 
-if(keyboard_check(ord('A')))
-{
-    x=500;
-    y=500;
-}
+//TODO: This one put in script like weird ah
+/*
+if(block &amp;&amp; grabbedBall == -1)
+    block = 0.25;
+else
+    block = 1;
+*/
 
-currentSpeed = sqrt(power(hspeed,2) + power(vspeed,2));
-hspeed = cos(degtorad(directionOfCollision))*currentSpeed;
-vspeed = -sin(degtorad(directionOfCollision))*currentSpeed;
-//move_bounce_solid(true);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_text(800,300,directionOfCollision);
+calculateCharacterSpeed();
+
 </string>
           </argument>
         </arguments>

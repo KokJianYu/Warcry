@@ -10,4 +10,3 @@ if(grabbedBall != -1){
     grabbedBall.grabbedBy = -1;
     grabbedBall=-1;
 }
-
