@@ -31,7 +31,7 @@ xAxis = 0;
 yAxis = 0;
 
 grabbedBall = -1;
-mass = 20;
+mass = 15;
 
 friction = 0.1;
 
@@ -104,8 +104,10 @@ if(gamepad_button_value(0,gp_shoulderl) || keyboard_check(ord('W')))
 }
 
 //This method is used to check continuous press 
-if(gamepad_button_check(0, gp_shoulderr)){   
-    releasePower += 1;
+if(gamepad_button_check(0, gp_shoulderr) &amp;&amp; grabbedBall != -1){   
+    if(releasePower &lt;= 100){
+        releasePower += 10/6; 
+    } 
 }
 
 //Will be triggerred when button is released.
@@ -147,7 +149,10 @@ calculateCharacterSpeed();
           <argument>
             <kind>1</kind>
             <string>draw_sprite(sprite_player2,0,x,y);
-draw_healthbar(x-50,y-100,x+50,y-120,(releasePower/maxReleasePower)*100,c_aqua,c_red,c_green,0,true,true);
+draw_text(room_width*0.8,room_height*0.1,damage);
+if(gamepad_button_check(0, gp_shoulderr) &amp;&amp; grabbedBall != -1){
+    draw_healthbar(x-50,y-100,x+50,y-120,(releasePower/maxReleasePower)*100,c_aqua,c_red,c_green,0,true,true);
+}
 </string>
           </argument>
         </arguments>

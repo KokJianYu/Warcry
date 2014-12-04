@@ -58,8 +58,8 @@
     <object>objects\skill_Bar1</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_menu</room>
     <room>rooms\room_game</room>
+    <room>rooms\room_menu</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
