@@ -130,7 +130,7 @@ alarm[0] = 9;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(gamepad_button_value(0, gp_start)){
+            <string>if(gamepad_button_check_pressed(0, gp_start)){
     instance_destroy();
 }
 

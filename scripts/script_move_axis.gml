@@ -23,7 +23,7 @@ if(magnitude >= threshold){
     }
     else*/
     if(place_meeting(x,y,obj_dWall) || place_meeting(x,y,obj_wall)){
-        gamepad_set_vibration(device,1,1);
+        //gamepad_set_vibration(device,1,1); this one too irritating
         alarm[0] =  15;
     }
 }

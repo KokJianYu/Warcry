@@ -36,5 +36,3 @@
     collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy,false);
     collidingCharacter.directionOfCollision = radtodeg(arctan2(-(collidingCharacter.ySpeed),collidingCharacter.xSpeed));
     collidedByCharacter = true;
-
-        
