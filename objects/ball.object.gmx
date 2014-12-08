@@ -38,6 +38,7 @@ oldY = y;
 collidedWithBall = false;
 ballCollidedWithId = -1;
 
+direction = irandom_range(0,360);
 </string>
           </argument>
         </arguments>
@@ -89,13 +90,15 @@ if(speed &gt; maxSpeed)
     vspeed = vspeed/speed*maxSpeed;
     hspeed = hspeed/speed*maxSpeed;
 }
-
+    
 //This increases speed to the min speed indicated
-if(speed &lt; minSpeed)
+if(speed &lt;= minSpeed)
 {
-    hspeed = cos(degtorad(direction))*minSpeed;
-    vspeed = -sin(degtorad(direction))*minSpeed;
+    friction = 0;
+    speed = minSpeed;
 }
+else
+    friction = maxSpeed/60/4;
 
 //This change the ball sprite according to its speed
 if(speed  &lt;= maxSpeed*0.35)
@@ -121,19 +124,16 @@ else
     ballCollidedWithId = -1;
 }
 
-if((collision_line(x,y,x+hspeed,y+vspeed,obj_player,false,false) || collision_line(x,y,x+hspeed,y+vspeed,obj_player2,false,false)) &amp;&amp; grabbedBy == -1)
-//if((place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2)) &amp;&amp; grabbedBy == -1)
+if(((place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2))) &amp;&amp; grabbedBy == -1)
 {
     if(!collidedWithCharacter){
         calculateCharacterCollision();
         audio_play_sound(snd_hit,3,false);
-        collidedWithCharacter = false;
     }
-    else
-        collidedWithCharacter = false;
 }
-else
+else 
    collidedWithCharacter = false;
+
 
 //This if else statement prevents the ball from being blocked by
 //objects when it is grabbed.   
@@ -151,7 +151,7 @@ else
     move_bounce_solid(true);
 }
 
-if((x&lt;0 || x&gt;1280) || (y&lt;0 || y&gt;720)){
+if(x&lt;0 || x&gt;1280 || y&lt;0 || y&gt;720){
     x = irandom_range(544, 704);
     y = irandom_range(96, 576);
 }

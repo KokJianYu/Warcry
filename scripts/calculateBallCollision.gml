@@ -1,4 +1,3 @@
-
 //calculateBallCollision()
 //This method calculates the collision between balls
     var collidingBall = instance_place(x+hspeed,y+vspeed,ball);
@@ -37,7 +36,6 @@
             collision(self,cuVx,cuVy,Vx,Vy,true);
             collision(collidingBall,-cuVx,-cuVy,-Vx,-Vy,true);
             collidedWithBall = true;
-            
             audio_play_sound(snd_clashing,2,false);
          }
     ballCollidedWithId = collidingBall.id;
