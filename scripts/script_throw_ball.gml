@@ -7,6 +7,15 @@ if(grabbedBall != -1){
     speedOfBall = grabbedBall.maxSpeed * (releasePower/100);
     grabbedBall.hspeed = cos(degtorad(direction))*speedOfBall;
     grabbedBall.vspeed = -sin(degtorad(direction))*speedOfBall;
+    
+    grabbedBall.x = x;
+    grabbedBall.y = y;
+    grabbedBall.collidedWithCharacter = true;
+    with(ball) 
+    {
+        move_outside_solid(direction+180,50)
+    }
+    
     grabbedBall.grabbedBy = -1;
     grabbedBall=-1;
 }

@@ -24,7 +24,6 @@
     cuVx = cVx/noToNormalise;
     cuVy = cVy/noToNormalise;
 
-    
     //Ensure that block only work when user face the ball when blocking.
     //if(collidingCharacter.direction-90>direction - 180 && collidingCharacter.directionOfCollision+90<collidingCharacter.direction+180)
       //  block = 1;
@@ -36,5 +35,17 @@
     collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy,false);
     collidingCharacter.directionOfCollision = radtodeg(arctan2(-(collidingCharacter.ySpeed),collidingCharacter.xSpeed));
     collidedByCharacter = true;
+    
+    script_get_gamepad_input(collidingCharacter.CONTROLLER_NUM);
+    if(point_distance(0,0,xAxis,yAxis)>= 0.25)
+    {
+        if(speed < 5)
+        {
+            direction = radtodeg(arctan2(-(y-collidingCharacter.y),x-collidingCharacter.x));
+            speed = 5;
+        }
+    }
+    
+    move_outside_all(radtodeg(arctan2(-(y-collidingCharacter.y),x-collidingCharacter.x)),20);
     
     effect_create_above(ef_ring, (x+collidingCharacter.x)/2, (y+collidingCharacter.y)/2, 0, c_black);

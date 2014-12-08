@@ -37,6 +37,7 @@
             collision(self,cuVx,cuVy,Vx,Vy,true);
             collision(collidingBall,-cuVx,-cuVy,-Vx,-Vy,true);
             collidedWithBall = true;
+            audio_play_sound(snd_clashing,2,false);
          }
     ballCollidedWithId = collidingBall.id;
     effect_create_below(ef_ring, (x+collidingBall.x)/2, (y+collidingBall.y)/2, 0, c_black);
