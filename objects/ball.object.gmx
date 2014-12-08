@@ -105,7 +105,6 @@ if(place_meeting(x+hspeed,y+vspeed,ball))
     //If the ball is not already colliding with another ball 
     if(!collidedWithBall) {
         calculateBallCollision();
-        audio_play_sound(snd_clashing,2,false);
     }
 }
 else
