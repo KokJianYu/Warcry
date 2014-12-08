@@ -38,4 +38,5 @@
             collidedWithBall = true;
          }
     ballCollidedWithId = collidingBall.id;
+    effect_create_below(ef_ring, (x+collidingBall.x)/2, (y+collidingBall.y)/2, 0, c_black);
     }
