@@ -36,3 +36,5 @@
     collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy,false);
     collidingCharacter.directionOfCollision = radtodeg(arctan2(-(collidingCharacter.ySpeed),collidingCharacter.xSpeed));
     collidedByCharacter = true;
+    
+    effect_create_above(ef_ring, (x+collidingCharacter.x)/2, (y+collidingCharacter.y)/2, 0, c_black);

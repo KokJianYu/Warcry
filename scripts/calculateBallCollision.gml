@@ -1,3 +1,4 @@
+
 //calculateBallCollision()
 //This method calculates the collision between balls
     var collidingBall = instance_place(x+hspeed,y+vspeed,ball);
@@ -38,4 +39,5 @@
             collidedWithBall = true;
          }
     ballCollidedWithId = collidingBall.id;
+    effect_create_below(ef_ring, (x+collidingBall.x)/2, (y+collidingBall.y)/2, 0, c_black);
     }
