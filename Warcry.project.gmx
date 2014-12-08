@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_clashing</sound>
+    <sound>sound\snd_background</sound>
+    <sound>sound\snd_hit</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\diagonalRealFloor</sprite>
     <sprite>sprites\diagonalFloor</sprite>
@@ -26,8 +30,11 @@
       <sprite>sprites\sprite_end</sprite>
       <sprite>sprites\spr_backdrop</sprite>
     </sprites>
+    <sprite>sprites\sprite_hazes</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bck_space</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\calculateCharacterSpeed.gml</script>
@@ -48,6 +55,7 @@
     <object>objects\ball</object>
     <object>objects\obj_player</object>
     <object>objects\obj_player2</object>
+    <object>objects\obj_hazes</object>
     <objects name="Main Menu">
       <object>objects\obj_menus</object>
     </objects>
@@ -56,6 +64,9 @@
       <object>objects\obj_pause_menu_controller</object>
     </objects>
     <object>objects\skill_Bar1</object>
+    <objects name="Sound">
+      <object>objects\obj_sound</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_game</room>

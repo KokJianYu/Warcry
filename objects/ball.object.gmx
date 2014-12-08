@@ -98,11 +98,15 @@ else if(speed &lt;= maxSpeed*0.5)
     sprite_index = sprite_yellowBall;
 else
     sprite_index = sprite_redBall;
+
 //Check if the ball is going to collide with another ball.
 if(place_meeting(x+hspeed,y+vspeed,ball))   
 {
-    if(!collidedWithBall) //If the ball is not already colliding with another ball 
+    //If the ball is not already colliding with another ball 
+    if(!collidedWithBall) {
         calculateBallCollision();
+        audio_play_sound(snd_clashing,2,false);
+    }
 }
 else
 {
@@ -112,8 +116,10 @@ else
 //
 if((speed&gt;0) &amp;&amp; (place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2)) &amp;&amp; grabbedBy == -1)
 {
-    if(!collidedWithCharacter)
+    if(!collidedWithCharacter){
         calculateCharacterCollision();
+        audio_play_sound(snd_hit,3,false);
+    }
 }
 else
    collidedWithCharacter = false;
@@ -123,7 +129,7 @@ else
 if(grabbedBy != -1)
 {
 
-    var lengthRequired =  obj_player.sprite_width + 6;
+    var lengthRequired =  obj_player.sprite_width/2 + ball.sprite_width/2 + 4;
     x = grabbedBy.x + cos(degtorad(grabbedBy.direction))*lengthRequired;
     y = grabbedBy.y - sin(degtorad(grabbedBy.direction))*lengthRequired; // y-axis is reversed
     vspeed = 0;
@@ -133,7 +139,6 @@ else
 {
     move_bounce_solid(true);
 }
-
 
 
 </string>

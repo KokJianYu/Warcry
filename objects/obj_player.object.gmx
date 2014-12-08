@@ -95,7 +95,7 @@ script_move_axis(xAxis, yAxis, .25, 4, 1);
 
 script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
-//image_angle = direction;
+image_angle = direction;
 
 
 if(gamepad_button_value(1,gp_shoulderl) || keyboard_check(ord('W')))
@@ -115,12 +115,11 @@ if(gamepad_button_check_released(1, gp_shoulderr)){
 }
 
 //TODO: This one put in script like weird ah
-/*
-if(block &amp;&amp; grabbedBall == -1)
+
+if(gamepad_button_check(1, gp_shoulderlb) &amp;&amp; grabbedBall == -1)
     block = 0.25;
 else
     block = 1;
-*/
 
 calculateCharacterSpeed();
 
