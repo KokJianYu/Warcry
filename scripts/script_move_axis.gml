@@ -8,7 +8,7 @@ var spd = argument3;
 var device = argument4;
 
 //Move character to possible spaces
-if(magnitude >= threshold){
+if(magnitude >= threshold && !gamepad_button_check(argument4,gp_shoulderlb)){
     //if(!collision_line(x,y,x+xAxis*spd,y+yAxis*spd,obj_wall,false,false) || !collision_line(x,y,x+xAxis*spd,y+yAxis*spd,obj_dWall,false,false)){
         x+=xAxis*spd;
         y+=yAxis*spd;

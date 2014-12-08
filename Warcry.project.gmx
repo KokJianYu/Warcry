@@ -14,16 +14,14 @@
     <sprite>sprites\diagonalFloor</sprite>
     <sprite>sprites\sprite_laser</sprite>
     <sprite>sprites\sprite_hLaser</sprite>
+    <sprite>sprites\sprite_barrier</sprite>
     <sprite>sprites\sprite_laserTower</sprite>
     <sprite>sprites\sprite_dLaser</sprite>
-    <sprite>sprites\diagonalDeathFloor</sprite>
     <sprite>sprites\realFloor</sprite>
     <sprite>sprites\floor01</sprite>
-    <sprite>sprites\deathFloor</sprite>
     <sprite>sprites\sprite_ball</sprite>
     <sprite>sprites\sprite_yellowBall</sprite>
     <sprite>sprites\sprite_redBall</sprite>
-    <sprite>sprites\sprite9</sprite>
     <sprite>sprites\sprite_greenBall</sprite>
     <sprite>sprites\sprite_player</sprite>
     <sprite>sprites\sprite_player2</sprite>

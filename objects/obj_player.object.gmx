@@ -46,6 +46,9 @@ damage = 0;
 
 releasePower = 0;
 maxReleasePower = 100;
+
+barrierIndex = 0;
+
 </string>
           </argument>
         </arguments>
@@ -341,14 +344,21 @@ global.player2Score += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+            <string>
 //draw_set_halign(fa_left);
 draw_text(96,576,damage);
 var tColor = make_colour_rgb(255,255,255);
-if(gamepad_button_check(1, gp_shoulderr) &amp;&amp; grabbedBall != -1){
+if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderr) &amp;&amp; grabbedBall != -1){
     draw_healthbar(x-50,y-30,x+50,y-35,(releasePower/maxReleasePower)*100,c_aqua,c_red,c_green,0,false,true);
 }
 
+if(gamepad_button_check(CONTROLLER_NUM,gp_shoulderlb))
+{
+    draw_sprite(sprite_barrier,barrierIndex,x,y);
+    barrierIndex++;
+}
+else
+    draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
 </string>
           </argument>
         </arguments>
@@ -357,7 +367,7 @@ if(gamepad_button_check(1, gp_shoulderr) &amp;&amp; grabbedBall != -1){
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>1</PhysicsObjectShape>
+  <PhysicsObjectShape>0</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -367,9 +377,7 @@ if(gamepad_button_check(1, gp_shoulderr) &amp;&amp; grabbedBall != -1){
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,16</point>
-    <point>64,16</point>
-    <point>64,48</point>
-    <point>0,48</point>
+    <point>32,32</point>
+    <point>32,32</point>
   </PhysicsShapePoints>
 </object>
