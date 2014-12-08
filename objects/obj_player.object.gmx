@@ -184,8 +184,7 @@ calculateCharacterSpeed();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
-instance_create(192,320,obj_player);
+            <string>script_recreate_player(192,320,obj_player);
 global.player2Score += 1;
 //alarm[10] = 60*5;
 </string>
@@ -250,8 +249,7 @@ global.player2Score += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
-instance_create(192,320,obj_player);
+            <string>script_recreate_player(192,320,obj_player);
 global.player2Score += 1;
 //alarm[10] = 60*5;
 </string>

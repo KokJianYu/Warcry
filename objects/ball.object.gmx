@@ -28,6 +28,7 @@
             <string>mass = 1;
 
 maxSpeed = 30;
+minSpeed = 2;
 friction = maxSpeed/60/4;
 grabbedBy = -1;
 
@@ -83,12 +84,19 @@ if(vspeed&lt;10)
 
 
 //This reduces speed to the max speed indicated.
-if(power(vspeed,2)+power(hspeed,2)&gt;power(maxSpeed,2))
+if(speed &gt; maxSpeed)
 {
-    vspeed = vspeed/sqrt(power(vspeed,2)+power(hspeed,2))*maxSpeed;
-    hspeed = hspeed/sqrt(power(vspeed,2)+power(hspeed,2))*maxSpeed;
+    vspeed = vspeed/speed*maxSpeed;
+    hspeed = hspeed/speed*maxSpeed;
 }
-    
+
+//This increases speed to the min speed indicated
+if(speed &lt; minSpeed)
+{
+    hspeed = cos(degtorad(direction))*minSpeed;
+    vspeed = -sin(degtorad(direction))*minSpeed;
+}
+
 //This change the ball sprite according to its speed
 if(speed  &lt;= maxSpeed*0.35)
 {
@@ -105,7 +113,6 @@ if(place_meeting(x+hspeed,y+vspeed,ball))
     //If the ball is not already colliding with another ball 
     if(!collidedWithBall) {
         calculateBallCollision();
-        audio_play_sound(snd_clashing,2,false);
     }
 }
 else
@@ -113,13 +120,17 @@ else
     collidedWithBall = false;
     ballCollidedWithId = -1;
 }
-//
-if((speed&gt;0) &amp;&amp; (place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2)) &amp;&amp; grabbedBy == -1)
+
+if((collision_line(x,y,x+hspeed,y+vspeed,obj_player,false,false) || collision_line(x,y,x+hspeed,y+vspeed,obj_player2,false,false)) &amp;&amp; grabbedBy == -1)
+//if((place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2)) &amp;&amp; grabbedBy == -1)
 {
     if(!collidedWithCharacter){
         calculateCharacterCollision();
         audio_play_sound(snd_hit,3,false);
+        collidedWithCharacter = false;
     }
+    else
+        collidedWithCharacter = false;
 }
 else
    collidedWithCharacter = false;
@@ -140,6 +151,10 @@ else
     move_bounce_solid(true);
 }
 
+if((x&lt;0 || x&gt;1280) || (y&lt;0 || y&gt;720)){
+    x = irandom_range(544, 704);
+    y = irandom_range(96, 576);
+}
 
 </string>
           </argument>

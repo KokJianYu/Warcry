@@ -10,19 +10,27 @@
     <sound>sound\snd_hit</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\diagonalRealFloor</sprite>
-    <sprite>sprites\diagonalFloor</sprite>
-    <sprite>sprites\diagonalDeathFloor</sprite>
-    <sprite>sprites\realFloor</sprite>
-    <sprite>sprites\floor01</sprite>
-    <sprite>sprites\deathFloor</sprite>
-    <sprite>sprites\sprite_ball</sprite>
-    <sprite>sprites\sprite_yellowBall</sprite>
-    <sprite>sprites\sprite_redBall</sprite>
-    <sprite>sprites\sprite9</sprite>
-    <sprite>sprites\sprite_greenBall</sprite>
-    <sprite>sprites\sprite_player</sprite>
-    <sprite>sprites\sprite_player2</sprite>
+    <sprites name="Heroes">
+      <sprite>sprites\sprite_lodin</sprite>
+      <sprite>sprites\sprite_hazes</sprite>
+      <sprite>sprites\sprite_player2</sprite>
+      <sprite>sprites\sprite_player</sprite>
+    </sprites>
+    <sprites name="Tiles">
+      <sprite>sprites\deathFloor</sprite>
+      <sprite>sprites\diagonalFloor</sprite>
+      <sprite>sprites\diagonalDeathFloor</sprite>
+      <sprite>sprites\realFloor</sprite>
+      <sprite>sprites\diagonalRealFloor</sprite>
+      <sprite>sprites\floor01</sprite>
+    </sprites>
+    <sprites name="Balls">
+      <sprite>sprites\sprite_greenBall</sprite>
+      <sprite>sprites\sprite9</sprite>
+      <sprite>sprites\sprite_ball</sprite>
+      <sprite>sprites\sprite_yellowBall</sprite>
+      <sprite>sprites\sprite_redBall</sprite>
+    </sprites>
     <sprites name="Main Menu">
       <sprite>sprites\sprite_menu</sprite>
     </sprites>
@@ -32,7 +40,6 @@
       <sprite>sprites\sprite_end</sprite>
       <sprite>sprites\spr_backdrop</sprite>
     </sprites>
-    <sprite>sprites\sprite_hazes</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_space</background>
@@ -48,6 +55,7 @@
     <script>scripts\script_move_axis.gml</script>
     <script>scripts\script_rotate_player.gml</script>
     <script>scripts\script_throw_ball.gml</script>
+    <script>scripts\script_recreate_player.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_dWall</object>
@@ -57,9 +65,12 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_deathFloor</object>
     <object>objects\ball</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_player2</object>
-    <object>objects\obj_hazes</object>
+    <objects name="Heroes">
+      <object>objects\obj_player</object>
+      <object>objects\obj_player2</object>
+      <object>objects\obj_hazes</object>
+      <object>objects\obj_lodin</object>
+    </objects>
     <objects name="Main Menu">
       <object>objects\obj_menus</object>
     </objects>
