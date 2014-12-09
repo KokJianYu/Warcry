@@ -1,4 +1,3 @@
-
 //calculateBallCollision()
 //This method calculates the collision between balls
     var collidingBall = instance_place(x+hspeed,y+vspeed,ball);

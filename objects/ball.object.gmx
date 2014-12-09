@@ -123,13 +123,12 @@ else
     collidedWithBall = false;
     ballCollidedWithId = -1;
 }
-//
+
 if(((place_meeting(x+hspeed,y+vspeed,obj_player) || place_meeting(x+hspeed,y+vspeed,obj_player2))) &amp;&amp; grabbedBy == -1)
 {
     if(!collidedWithCharacter){
         calculateCharacterCollision();
         audio_play_sound(snd_hit,3,false);
-        
     }
 }
 else 
@@ -156,6 +155,7 @@ if(x&lt;0 || x&gt;1280 || y&lt;0 || y&gt;720){
     x = irandom_range(544, 704);
     y = irandom_range(96, 576);
 }
+
 </string>
           </argument>
         </arguments>
@@ -178,8 +178,7 @@ if(x&lt;0 || x&gt;1280 || y&lt;0 || y&gt;720){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(900,300,radtodeg(arctan2(-vspeed,hspeed)));
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

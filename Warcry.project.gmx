@@ -10,21 +10,32 @@
     <sound>sound\snd_hit</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\diagonalRealFloor</sprite>
-    <sprite>sprites\diagonalFloor</sprite>
+    <sprites name="Heroes">
+      <sprite>sprites\sprite_lodin</sprite>
+      <sprite>sprites\sprite_hazes</sprite>
+      <sprite>sprites\sprite_player2</sprite>
+      <sprite>sprites\sprite_player</sprite>
+    </sprites>
+    <sprites name="Tiles">
+      <sprite>sprites\deathFloor</sprite>
+      <sprite>sprites\diagonalFloor</sprite>
+      <sprite>sprites\diagonalDeathFloor</sprite>
+      <sprite>sprites\realFloor</sprite>
+      <sprite>sprites\diagonalRealFloor</sprite>
+      <sprite>sprites\floor01</sprite>
+    </sprites>
+    <sprites name="Balls">
+      <sprite>sprites\sprite_greenBall</sprite>
+      <sprite>sprites\sprite9</sprite>
+      <sprite>sprites\sprite_ball</sprite>
+      <sprite>sprites\sprite_yellowBall</sprite>
+      <sprite>sprites\sprite_redBall</sprite>
+    </sprites>
     <sprite>sprites\sprite_laser</sprite>
     <sprite>sprites\sprite_hLaser</sprite>
     <sprite>sprites\sprite_barrier</sprite>
     <sprite>sprites\sprite_laserTower</sprite>
     <sprite>sprites\sprite_dLaser</sprite>
-    <sprite>sprites\realFloor</sprite>
-    <sprite>sprites\floor01</sprite>
-    <sprite>sprites\sprite_ball</sprite>
-    <sprite>sprites\sprite_yellowBall</sprite>
-    <sprite>sprites\sprite_redBall</sprite>
-    <sprite>sprites\sprite_greenBall</sprite>
-    <sprite>sprites\sprite_player</sprite>
-    <sprite>sprites\sprite_player2</sprite>
     <sprites name="Main Menu">
       <sprite>sprites\sprite_menu</sprite>
     </sprites>
@@ -34,11 +45,17 @@
       <sprite>sprites\sprite_end</sprite>
       <sprite>sprites\spr_backdrop</sprite>
     </sprites>
-    <sprite>sprites\sprite_hazes</sprite>
-    <sprite>sprites\sprite25</sprite>
+    <sprites name="Control Page">
+      <sprite>sprites\bck_conPage_backdrop</sprite>
+      <sprite>sprites\spr_conPage_Title</sprite>
+      <sprite>sprites\sprite_balls</sprite>
+      <sprite>sprites\sprite_lives</sprite>
+      <sprite>sprites\sprite_timer</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_space</background>
+    <background>background\bck_conPage</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -65,9 +82,10 @@
     <object>objects\obj_vDeathFloor</object>
     <object>objects\obj_hDeathFloor</object>
     <object>objects\ball</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_player2</object>
-    <object>objects\obj_hazes</object>
+    <objects name="Heroes">
+      <object>objects\obj_player</object>
+      <object>objects\obj_player2</object>
+    </objects>
     <objects name="Main Menu">
       <object>objects\obj_menus</object>
     </objects>
@@ -75,12 +93,15 @@
       <object>objects\obj_room_controller</object>
       <object>objects\obj_pause_menu_controller</object>
     </objects>
-    <object>objects\skill_Bar1</object>
     <objects name="Sound">
       <object>objects\obj_sound</object>
     </objects>
+    <objects name="Control Page">
+      <object>objects\obj_conPage_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_conPage</room>
     <room>rooms\room_game</room>
     <room>rooms\room_menu</room>
   </rooms>
