@@ -8,4 +8,3 @@ if(grabbedBall!=-1){
     grabbedBall.x = x;
     grabbedBall.y = y;
 }
-

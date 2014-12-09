@@ -48,7 +48,10 @@ releasePower = 0;
 maxReleasePower = 100;
 
 barrierIndex = 0;
+movementSpeed = 4;
 
+character = 1;
+skillActive = false;
 </string>
           </argument>
         </arguments>
@@ -96,7 +99,7 @@ barrierIndex = 0;
             <kind>1</kind>
             <string>script_get_gamepad_input(CONTROLLER_NUM);
 
-script_move_axis(xAxis, yAxis, .25, 4, CONTROLLER_NUM);
+script_move_axis(xAxis, yAxis, .25, movementSpeed, CONTROLLER_NUM);
 
 script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
@@ -126,6 +129,15 @@ else
     block = 1;
 
 calculateCharacterSpeed();
+
+if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderrb) &amp;&amp; skillPower &gt;= 100)
+{
+    script_character_skill(character);   
+}
+if(skillActive)
+{
+    script_character_skill_effects(character);
+}
 
 </string>
           </argument>

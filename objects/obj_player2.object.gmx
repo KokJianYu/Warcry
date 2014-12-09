@@ -46,6 +46,8 @@ damage = 0;
 releasePower = 0;
 maxReleasePower = 100;
 
+movementSpeed = 4;
+
 barrierIndex = 0;
 </string>
           </argument>
@@ -94,7 +96,7 @@ barrierIndex = 0;
             <kind>1</kind>
             <string>script_get_gamepad_input(CONTROLLER_NUM);
 
-script_move_axis(xAxis, yAxis, .25, 4, CONTROLLER_NUM);
+script_move_axis(xAxis, yAxis, .25, movementSpeed, CONTROLLER_NUM);
 
 script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
