@@ -97,7 +97,7 @@ alarm[0] = 3;
             <string>if (gamepad_button_check_pressed(0, gp_face2) || gamepad_button_check_pressed(1, gp_face2)){
     
     if (image_index == 0) {
-        room_goto(room_game);
+        room_goto(room_conPage);
     }else
     if(image_index == 1){
         

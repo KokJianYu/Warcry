@@ -69,6 +69,7 @@
     <script>scripts\script_move_axis.gml</script>
     <script>scripts\script_rotate_player.gml</script>
     <script>scripts\script_throw_ball.gml</script>
+    <script>scripts\script_initialize_globalvar.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_laserTower</object>
@@ -97,11 +98,15 @@
     <objects name="Control Page">
       <object>objects\obj_conPage_controller</object>
     </objects>
+    <objects name="Character Selection Page">
+      <object>objects\obj_chaSelPage_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room_conPage</room>
-    <room>rooms\room_game</room>
     <room>rooms\room_menu</room>
+    <room>rooms\room_conPage</room>
+    <room>rooms\room_select_character</room>
+    <room>rooms\room_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

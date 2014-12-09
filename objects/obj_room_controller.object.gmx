@@ -25,17 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar player1Score;
-globalvar player2Score;
+            <string>global.player1Score = 0;
+global.player2Score = 0;
 
-player1Score = 0;
-player2Score = 0;
-
-globalvar player1SkillPower;
-globalvar player2SkillPower;
-
-player1SkillPower = 0;
-player2SkillPower = 0;
+global.player1SkillPower = 0;
+global.player2SkillPower = 0;
+ 
 </string>
           </argument>
         </arguments>
