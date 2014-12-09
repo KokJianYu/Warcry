@@ -47,7 +47,7 @@ releasePower = 0;
 maxReleasePower = 100;
 
 skillPower = global.player2SkillPower;
-
+barrierIndex = 0;
 
 </string>
           </argument>
@@ -350,14 +350,25 @@ global.player1Score += 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_lodin,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+            <string>
+
 //draw_set_halign(fa_left);
 draw_text(1152,576,damage);
 var tColor = make_colour_rgb(255,255,255);
-//if(gamepad_button_check(1, gp_shoulderr) &amp;&amp; grabbedBall != -1){
-draw_healthbar(x-50,y-30,x+50,y-35,(releasePower/maxReleasePower)*100,c_aqua,c_red,c_green,0,false,true);
+if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderr) &amp;&amp; grabbedBall != -1){
+    draw_healthbar(x-50,y-30,x+50,y-35,(releasePower/maxReleasePower)*100,c_aqua,c_red,c_green,0,false,true);
+}
 
 draw_healthbar(1216, 640, 1056, 672, skillPower, c_white, c_red, c_green, 0, true, true);
+
+if(gamepad_button_check(CONTROLLER_NUM,gp_shoulderlb))
+{
+    draw_sprite(sprite_barrier,barrierIndex,x,y);
+    barrierIndex++;
+}
+else
+    draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+
 </string>
           </argument>
         </arguments>

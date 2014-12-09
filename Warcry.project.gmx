@@ -33,6 +33,7 @@
     </sprites>
     <sprite>sprites\sprite_laser</sprite>
     <sprite>sprites\sprite_hLaser</sprite>
+    <sprite>sprites\sprite_barrier</sprite>
     <sprite>sprites\sprite_laserTower</sprite>
     <sprite>sprites\sprite_dLaser</sprite>
     <sprites name="Main Menu">
