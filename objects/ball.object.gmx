@@ -178,8 +178,7 @@ if(x&lt;0 || x&gt;1280 || y&lt;0 || y&gt;720){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(900,300,radtodeg(arctan2(-vspeed,hspeed)));
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

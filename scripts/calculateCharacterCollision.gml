@@ -29,6 +29,10 @@
       //  block = 1;
         
     collidingCharacter.damage += (speed/maxSpeed)*40*collidingCharacter.block;
+    collidingCharacter.skillPower += (speed/maxSpeed)*40*collidingCharacter.block*2;
+    if(collidingCharacter.skillPower >= 100){
+        collidingCharacter.skillPower = 100;
+    }
     //collidingCharacter.directionOfCollision = point_direction(0,0,0+hspeed,0+vspeed);
     //Call the collision method for both the balls.
     collision(self,cuVx,cuVy,Vx,Vy,true);

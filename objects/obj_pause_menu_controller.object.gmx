@@ -81,9 +81,9 @@ instance_activate_all();
             <kind>1</kind>
             <string>if(gamepad_button_value(0, gp_padd)){
     if(interest = "continue"){
-        interest = "option";
+        interest = "restart";
     }else
-    if(interest = "option"){
+    if(interest = "restart"){
         interest = "exit";
     }else
     if(interest = "exit"){
@@ -95,11 +95,11 @@ if(gamepad_button_value(0, gp_padu)){
     if(interest = "continue"){
         interest = "exit";
     }else
-    if(interest = "option"){
+    if(interest = "restart"){
         interest = "continue";
     }else
     if(interest = "exit"){
-        interest = "option";
+        interest = "restart";
     }
 }
 
@@ -134,8 +134,9 @@ if(gamepad_button_check_pressed(0, gp_face2)){
     if(interest = "continue"){
         instance_destroy();
     }else
-    if(interest = "option"){
-        //TODO: Set background sound 
+    if(interest = "restart"){
+        //TODO: restart game
+        room_goto(room_game);
     }
     else
     if(interest == "exit"){
@@ -176,7 +177,7 @@ if(interest = "continue"){
     draw_sprite(sprite_option, 0, room_width/2, 360);
     draw_sprite(sprite_end, 0, room_width/2, 360 + 100);
 }else
-if(interest = "option"){
+if(interest = "restart"){
     draw_sprite(sprite_continue, 0, room_width/2, 360 - 100);
     draw_sprite(sprite_option, 1, room_width/2, 360);
     draw_sprite(sprite_end, 0, room_width/2, 360 + 100);

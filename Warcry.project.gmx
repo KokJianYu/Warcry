@@ -44,9 +44,17 @@
       <sprite>sprites\sprite_end</sprite>
       <sprite>sprites\spr_backdrop</sprite>
     </sprites>
+    <sprites name="Control Page">
+      <sprite>sprites\bck_conPage_backdrop</sprite>
+      <sprite>sprites\spr_conPage_Title</sprite>
+      <sprite>sprites\sprite_balls</sprite>
+      <sprite>sprites\sprite_lives</sprite>
+      <sprite>sprites\sprite_timer</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_space</background>
+    <background>background\bck_conPage</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -60,7 +68,6 @@
     <script>scripts\script_move_axis.gml</script>
     <script>scripts\script_rotate_player.gml</script>
     <script>scripts\script_throw_ball.gml</script>
-    <script>scripts\script_recreate_player.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_laserTower</object>
@@ -75,8 +82,6 @@
     <objects name="Heroes">
       <object>objects\obj_player</object>
       <object>objects\obj_player2</object>
-      <object>objects\obj_hazes</object>
-      <object>objects\obj_lodin</object>
     </objects>
     <objects name="Main Menu">
       <object>objects\obj_menus</object>
@@ -85,12 +90,15 @@
       <object>objects\obj_room_controller</object>
       <object>objects\obj_pause_menu_controller</object>
     </objects>
-    <object>objects\skill_Bar1</object>
     <objects name="Sound">
       <object>objects\obj_sound</object>
     </objects>
+    <objects name="Control Page">
+      <object>objects\obj_conPage_controller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_conPage</room>
     <room>rooms\room_game</room>
     <room>rooms\room_menu</room>
   </rooms>
