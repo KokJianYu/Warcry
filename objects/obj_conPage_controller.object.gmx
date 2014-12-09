@@ -51,17 +51,17 @@
             <string>draw_sprite(spr_conPage_Title, 0, room_width/2, room_height/2-260);
 draw_sprite(bck_conPage_backdrop, 0, room_width/2+12, room_height/2-50);
 
-if(interest = "Timer"){
+if(control = "Timer"){
     draw_sprite(sprite_timer, 1, room_width/2, 360 - 100);
     draw_sprite(sprite_lives, 0, room_width/2, 360);
     draw_sprite(sprite_balls, 0, room_width/2, 360 + 100);
 }else
-if(interest = "Lives"){
+if(control = "Lives"){
     draw_sprite(sprite_timer, 0, room_width/2, 360 - 100);
     draw_sprite(sprite_lives, 1, room_width/2, 360);
     draw_sprite(sprite_balls, 0, room_width/2, 360 + 100);
 }else
-if(interest = "Balls"){
+if(control = "Balls"){
     draw_sprite(sprite_timer, 0, room_width/2, 360 - 100);
     draw_sprite(sprite_lives, 0, room_width/2, 360);
     draw_sprite(sprite_balls, 1, room_width/2, 360 + 100);

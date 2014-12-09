@@ -30,7 +30,7 @@
 xAxis = 0;
 yAxis = 0;
 
-CONTROLLER_NUM = 0;
+CONTROLLER_NUM = 1;
 
 grabbedBall = -1;
 mass = 15;
@@ -369,7 +369,7 @@ if(gamepad_button_check(CONTROLLER_NUM,gp_shoulderlb))
     barrierIndex++;
 }
 else
-    draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+    draw_sprite_ext(sprite_lodin,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
 
 </string>
           </argument>

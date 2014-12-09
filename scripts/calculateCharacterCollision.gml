@@ -27,9 +27,9 @@
     //Ensure that block only work when user face the ball when blocking.
     //if(collidingCharacter.direction-90>direction - 180 && collidingCharacter.directionOfCollision+90<collidingCharacter.direction+180)
       //  block = 1;
-        
-    collidingCharacter.damage += (speed/maxSpeed)*40*collidingCharacter.block;
-    collidingCharacter.skillPower += (speed/maxSpeed)*40*collidingCharacter.block*2;
+    var damageReceived = (speed/maxSpeed)*40*collidingCharacter.block;
+    collidingCharacter.damage += damageReceived;
+    collidingCharacter.skillPower += damageReceived;
     if(collidingCharacter.skillPower >= 100){
         collidingCharacter.skillPower = 100;
     }
