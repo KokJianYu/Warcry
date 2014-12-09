@@ -30,10 +30,11 @@
 xAxis = 0;
 yAxis = 0;
 
-CONTROLLER_NUM = 1;
+CONTROLLER_NUM = 0;
 
 grabbedBall = -1;
-mass = 15;
+mass = 9999;
+alarm[5] = 120;
 
 friction = 0.1;
 
@@ -49,7 +50,33 @@ maxReleasePower = 100;
 
 skillPower = global.player1SkillPower;
 barrierIndex = 0;
+movementSpeed = 4;
 
+character = 1;
+skillActive = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>mass = 15;
 </string>
           </argument>
         </arguments>
@@ -97,13 +124,13 @@ barrierIndex = 0;
             <kind>1</kind>
             <string>script_get_gamepad_input(CONTROLLER_NUM);
 
-script_move_axis(xAxis, yAxis, .25, 4, CONTROLLER_NUM);
+script_move_axis(xAxis, yAxis, .25, movementSpeed, CONTROLLER_NUM);
 
 script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
 image_angle = direction-90;
 
-if(gamepad_button_value(1,gp_shoulderl) || keyboard_check(ord('W')))
+if(gamepad_button_value(CONTROLLER_NUM,gp_shoulderl) || keyboard_check(ord('W')))
 {
     grabBall();  
 }
@@ -127,6 +154,16 @@ else
     block = 1;
 
 calculateCharacterSpeed();
+
+if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderrb) &amp;&amp; skillPower &gt;= 100 &amp;&amp; !skillActive)
+{
+    script_character_skill(character);   
+    skillPower = 0;
+}
+if(skillActive)
+{
+    script_character_skill_effects(character);
+}
 
 </string>
           </argument>
@@ -353,6 +390,13 @@ global.player2Score += 1;
 draw_text(96,576,damage);
 var tColor = make_colour_rgb(255,255,255);
 
+    
+if(grabbedBall != -1)
+{
+    draw_set_color(c_red);
+    draw_line_width(x,y,x+cos(degtorad(direction))*200,y-sin(degtorad(direction))*200,2);
+}
+
 if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderr) &amp;&amp; grabbedBall != -1){
     draw_healthbar(x-50,y-30,x+50,y-35,(releasePower/maxReleasePower)*100,c_aqua,c_red,c_green,0,false,true);
 }
@@ -367,6 +411,7 @@ if(gamepad_button_check(CONTROLLER_NUM,gp_shoulderlb))
 }
 else
     draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+
 </string>
           </argument>
         </arguments>

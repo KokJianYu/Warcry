@@ -198,15 +198,15 @@ alarm[0] = 7;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(gamepad_button_check_pressed(0, gp_start)){
-    //TODO: 
-    global.timer = real(timeOption);
-    global.nLives = real(livesOption);
-    global.nBalls = real(ballsOption);
-    
-    room_goto(room_game);
-    
-}
+            <string>
+    if(gamepad_button_check_pressed(0, gp_start)){
+        //TODO: 
+        global.timer = real(timeOption);
+        global.nLives = real(livesOption);
+        global.nBalls = real(ballsOption);
+        
+        room_goto(room_game);
+    }
 
 if(gamepad_button_check_pressed(0, gp_face2)){
     if(control = "Timer"){
@@ -220,8 +220,6 @@ if(gamepad_button_check_pressed(0, gp_face2)){
         
     }
 }
-
-
 
 </string>
           </argument>

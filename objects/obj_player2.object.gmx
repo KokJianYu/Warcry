@@ -30,7 +30,7 @@
 xAxis = 0;
 yAxis = 0;
 
-CONTROLLER_NUM = 0;
+CONTROLLER_NUM = 1;
 
 grabbedBall = -1;
 mass = 15;
@@ -46,6 +46,8 @@ damage = 0;
 releasePower = 0;
 maxReleasePower = 100;
 
+movementSpeed = 4;
+skillPower = global.player2SkillPower;
 skillPower = global.player2SkillPower;
 barrierIndex = 0;
 
@@ -96,7 +98,7 @@ barrierIndex = 0;
             <kind>1</kind>
             <string>script_get_gamepad_input(CONTROLLER_NUM);
 
-script_move_axis(xAxis, yAxis, .25, 4, CONTROLLER_NUM);
+script_move_axis(xAxis, yAxis, .25, movementSpeed, CONTROLLER_NUM);
 
 script_rotate_player(rightXAxis,rightYAxis,.25,5);
 
@@ -367,7 +369,7 @@ if(gamepad_button_check(CONTROLLER_NUM,gp_shoulderlb))
     barrierIndex++;
 }
 else
-    draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+    draw_sprite_ext(sprite_lodin,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
 
 </string>
           </argument>

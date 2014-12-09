@@ -65,8 +65,12 @@
     <script>scripts\collision.gml</script>
     <script>scripts\calculateCharacterCollision.gml</script>
     <script>scripts\calculateBallCollision.gml</script>
+    <script>scripts\script_character_skill_effects.gml</script>
+    <script>scripts\script_character_reverse_skill.gml</script>
+    <script>scripts\script_character_skill.gml</script>
     <script>scripts\script_get_gamepad_input.gml</script>
     <script>scripts\script_move_axis.gml</script>
+    <script>scripts\script_power_up.gml</script>
     <script>scripts\script_rotate_player.gml</script>
     <script>scripts\script_throw_ball.gml</script>
     <script>scripts\script_initialize_globalvar.gml</script>
