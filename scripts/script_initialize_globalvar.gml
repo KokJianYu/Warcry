@@ -15,4 +15,4 @@ globalvar player2SkillPower;
 globalvar spriteArray;
 global.spriteArray[0] = sprite_lodin;
 global.spriteArray[1] = sprite_manta;
-global.spriteArray[2] = sprite_hazes;
+global.spriteArray[2] = sprite_eva;

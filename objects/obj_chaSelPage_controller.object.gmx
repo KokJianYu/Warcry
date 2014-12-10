@@ -7,7 +7,165 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cha1SelX = room_width/4;
+cha1SelY = room_height/2-room_width/4;
+
+cha2SelX = room_width/2+room_width/4;
+cha2SelY = room_height/2-room_width/4;
+
+cha1Select = 0;
+cha2Select = 2;
+
+cha1Ready = false;
+cha2Ready = false;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite(sprite_selection_box1, 0, cha1SelX, cha1SelY);
+draw_sprite(sprite_selection_box2, 0, cha2SelX, cha2SelY);
+
+draw_sprite(global.spriteArray[0], 0, room_width/4, room_height/2-room_width/4);
+draw_sprite(global.spriteArray[1], 0, room_width/2, room_height/2-room_width/4);
+draw_sprite(global.spriteArray[2], 0, room_width/2+room_width/4, room_height/2-room_width/4);
+
+if(cha1Ready = false){
+    if(gamepad_button_check_pressed(0, gp_padr)){
+        if(sprite_selection_box1 &amp;&amp; cha1SelX &lt; 960){
+            cha1SelX = cha1SelX+320;
+            cha1Select++;
+        } 
+    }
+
+    if(gamepad_button_check_pressed(0, gp_padl)){
+        if(sprite_selection_box1 &amp;&amp; cha1SelX &gt; 320){
+            cha1SelX = cha1SelX-320;
+            cha1Select--;
+        }
+    }
+     
+    if(gamepad_button_check_pressed(0, gp_face2)){
+        cha1Ready = true;
+    }
+}
+
+    if(cha1Select = LODIN){
+        draw_sprite(sprite_LodinInfo, 0, room_width/4, room_height/2);
+    }else
+    if(cha1Select = MANTA){
+        draw_sprite(sprite_MantaInfo, 0, room_width/4, room_height/2);
+    }else
+    if(cha1Select = EVA){
+        draw_sprite(sprite_EvaInfo, 0, room_width/4, room_height/2);
+    }
+    if(cha1Ready = true){
+        draw_sprite(sprite_ready, 0, room_width/4, room_height/2+room_width/4);
+    }
+
+if(cha2Ready = false){
+    if(gamepad_button_check_pressed(1, gp_padr)){
+         if(sprite_selection_box2 &amp;&amp; cha2SelX &lt; 960){
+            cha2SelX = cha2SelX+320;
+            cha2Select++;
+        }   
+    }
+    
+    if(gamepad_button_check_pressed(1, gp_padl)){
+         if(sprite_selection_box2 &amp;&amp; cha2SelX &gt; 320){
+            cha2SelX = cha2SelX-320;
+            cha2Select--;
+        }
+    }
+     
+    if(gamepad_button_check_pressed(1, gp_face2)){
+        cha2Ready = true;
+    }
+}
+
+    if(cha2Select = LODIN){
+        draw_sprite(sprite_LodinInfo, 0, room_width/2+room_width/4, room_height/2);
+    }else
+    if(cha2Select = MANTA){
+        draw_sprite(sprite_MantaInfo, 0, room_width/2+room_width/4, room_height/2);
+    }else
+    if(cha2Select = EVA){
+        draw_sprite(sprite_EvaInfo, 0, room_width/2+room_width/4, room_height/2);
+    }
+    
+    if(cha2Ready = true){
+        draw_sprite(sprite_ready, 0, room_width/2+room_width/4, room_height/2+room_width/4);
+    }
+    
+    if(cha1Ready &amp;&amp; cha2Ready){
+        room_goto(room_game);
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

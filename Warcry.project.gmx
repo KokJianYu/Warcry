@@ -12,9 +12,15 @@
   <sprites name="sprites">
     <sprites name="Heroes">
       <sprite>sprites\sprite_lodin</sprite>
-      <sprite>sprites\sprite_hazes</sprite>
+      <sprite>sprites\sprite_manta</sprite>
+      <sprite>sprites\sprite_eva</sprite>
       <sprite>sprites\sprite_player2</sprite>
       <sprite>sprites\sprite_player</sprite>
+      <sprites name="Heroes Info">
+        <sprite>sprites\sprite_LodinInfo</sprite>
+        <sprite>sprites\sprite_MantaInfo</sprite>
+        <sprite>sprites\sprite_EvaInfo</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
       <sprite>sprites\deathFloor</sprite>
@@ -33,7 +39,6 @@
     </sprites>
     <sprite>sprites\sprite_laser</sprite>
     <sprite>sprites\sprite_hLaser</sprite>
-    <sprite>sprites\sprite_barrier</sprite>
     <sprite>sprites\sprite_laserTower</sprite>
     <sprite>sprites\sprite_dLaser</sprite>
     <sprites name="Main Menu">
@@ -51,6 +56,16 @@
       <sprite>sprites\sprite_balls</sprite>
       <sprite>sprites\sprite_lives</sprite>
       <sprite>sprites\sprite_timer</sprite>
+    </sprites>
+    <sprites name="Effects">
+      <sprite>sprites\sprite_barrier</sprite>
+      <sprite>sprites\sprite_invul_barrier</sprite>
+      <sprite>sprites\sprite_warp</sprite>
+    </sprites>
+    <sprites name="Selection Menu">
+      <sprite>sprites\sprite_selection_box1</sprite>
+      <sprite>sprites\sprite_selection_box2</sprite>
+      <sprite>sprites\sprite_ready</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -108,10 +123,15 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
-    <room>rooms\room_conPage</room>
     <room>rooms\room_select_character</room>
+    <room>rooms\room_conPage</room>
     <room>rooms\room_game</room>
   </rooms>
+  <constants number="3">
+    <constant name="LODIN">0</constant>
+    <constant name="MANTA">1</constant>
+    <constant name="EVA">2</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

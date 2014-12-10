@@ -106,7 +106,7 @@ image_angle = direction+90;
 
 if(gamepad_button_value(CONTROLLER_NUM,gp_shoulderl) || keyboard_check(ord('W')))
 {
-    grabBall();  
+    grabBall(32);  
 }
 
 //This method is used to check continuous press 
@@ -193,7 +193,7 @@ calculateCharacterSpeed();
           <argument>
             <kind>1</kind>
             <string>global.player2SkillPower = skillPower;
-script_recreate_player(1024,320,obj_player2);
+script_recreate_player(928,352,obj_player2);
 global.player1Score += 1;
 //alarm[10] = 60*5;
 
@@ -261,7 +261,7 @@ global.player1Score += 1;
           <argument>
             <kind>1</kind>
             <string>global.player2SkillPower = skillPower;
-script_recreate_player(1024,320,obj_player2);
+script_recreate_player(928,352,obj_player2);
 global.player1Score += 1;
 //alarm[10] = 60*5;
 </string>
@@ -327,7 +327,7 @@ global.player1Score += 1;
           <argument>
             <kind>1</kind>
             <string>global.player2SkillPower = skillPower;
-script_recreate_player(1024,320,obj_player2);
+script_recreate_player(928,352,obj_player2);
 global.player1Score += 1;
 //alarm[10] = 60*5;
 </string>

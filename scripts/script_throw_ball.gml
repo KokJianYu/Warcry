@@ -15,7 +15,7 @@ if(grabbedBall != -1){
     {
         move_outside_solid(direction+180,50)
     }
-    
+    releasePower = 0;  
     grabbedBall.grabbedBy = -1;
     grabbedBall=-1;
 }
