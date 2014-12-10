@@ -56,6 +56,7 @@ movementSpeed = 4;
 
 character = 2;
 skillActive = false;
+
 </string>
           </argument>
         </arguments>
@@ -254,8 +255,6 @@ if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderrb) &amp;&amp; skillPower &gt
     script_character_skill(character);   
     skillPower = 0;
 }
-
-
 </string>
           </argument>
         </arguments>
@@ -318,9 +317,10 @@ if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderrb) &amp;&amp; skillPower &gt
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.player1SkillPower = skillPower;
-script_recreate_player(352,352,obj_player);
-global.player2Score += 1;
+            <string>
+global.player1SkillPower = skillPower;
+script_recreate_player(192,320,obj_player);
+global.player1Lives -= 1;
 //alarm[10] = 60*5;
 </string>
           </argument>
@@ -385,8 +385,10 @@ global.player2Score += 1;
           <argument>
             <kind>1</kind>
             <string>global.player1SkillPower = skillPower;
-script_recreate_player(352,352,obj_player);
-global.player2Score += 1;
+
+script_recreate_player(192,320,obj_player);
+global.player1Lives -= 1;
+
 //alarm[10] = 60*5;
 </string>
           </argument>
@@ -451,8 +453,10 @@ global.player2Score += 1;
           <argument>
             <kind>1</kind>
             <string>global.player1SkillPower = skillPower;
-script_recreate_player(352,352,obj_player);
-global.player2Score += 1;
+
+script_recreate_player(192,320,obj_player);
+global.player1Lives -= 1;
+
 //alarm[10] = 60*5;
 </string>
           </argument>
@@ -515,6 +519,13 @@ if(invulnerable){
     draw_sprite_ext(sprite_invul_barrier,invulBarrierIndex,x,y,image_xscale,image_yscale,image_angle-90,c_white,1);
     invulBarrierIndex++;
     }
+
+if(skillActive)
+{
+    script_character_skill_effects(character);
+}
+
+
 </string>
           </argument>
         </arguments>
