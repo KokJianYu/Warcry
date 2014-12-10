@@ -30,6 +30,32 @@ global.player2SkillPower = 0;
  
 global.player1Lives = global.nLives;
 global.player2Lives = global.nLives;
+
+alarm[0] = 600;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(random_range(576,672),random_range(96,576),obj_power_up);
+alarm[0] = irandom_range(300,900);
 </string>
           </argument>
         </arguments>

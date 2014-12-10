@@ -30,6 +30,7 @@
       <sprite>sprites\sprite_ball</sprite>
       <sprite>sprites\sprite_yellowBall</sprite>
       <sprite>sprites\sprite_redBall</sprite>
+      <sprite>sprites\sprite_earth_power_up</sprite>
     </sprites>
     <sprite>sprites\sprite_laser</sprite>
     <sprite>sprites\sprite_hLaser</sprite>
@@ -70,12 +71,13 @@
     <script>scripts\script_character_skill.gml</script>
     <script>scripts\script_get_gamepad_input.gml</script>
     <script>scripts\script_move_axis.gml</script>
-    <script>scripts\script_power_up.gml</script>
+    <script>scripts\script_power_up_effect.gml</script>
     <script>scripts\script_rotate_player.gml</script>
     <script>scripts\script_throw_ball.gml</script>
     <script>scripts\script_initialize_globalvar.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\obj_power_up</object>
     <object>objects\obj_laserTower</object>
     <object>objects\obj_dWall</object>
     <object>objects\realFloorObject</object>
@@ -112,6 +114,11 @@
     <room>rooms\room_select_character</room>
     <room>rooms\room_game</room>
   </rooms>
+  <constants number="3">
+    <constant name="FIRE_POWER_UP">10</constant>
+    <constant name="EARTH_POWER_UP">11</constant>
+    <constant name="WIND_POWER_UP">12</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

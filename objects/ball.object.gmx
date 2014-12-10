@@ -39,6 +39,43 @@ collidedWithBall = false;
 ballCollidedWithId = -1;
 
 direction = irandom_range(0,360);
+
+powerup = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//End the power up effect
+switch(powerup)
+{
+    case FIRE_POWER_UP:
+        break;
+    case EARTH_POWER_UP:
+        mass *= 0.5;
+        break;
+    case WIND_POWER_UP:
+        maxSpeed *= 0.5;
+        break;
+}
+powerup = -1;
 </string>
           </argument>
         </arguments>
@@ -156,6 +193,50 @@ if(x&lt;0 || x&gt;1280 || y&lt;0 || y&gt;720){
     y = irandom_range(96, 576);
 }
 
+if(powerup != -1)
+{
+    script_power_up_effect();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_power_up">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(powerup == -1)
+{
+    self.powerup = other.powerup;
+    switch(self.powerup)
+    {
+        case FIRE_POWER_UP:
+            break;
+        case EARTH_POWER_UP:
+            mass *= 2;
+            break;
+        case WIND_POWER_UP:
+            maxSpeed *= 2;
+            break;
+    }
+    speed = maxSpeed;
+    alarm[10] = 180;
+}
 </string>
           </argument>
         </arguments>

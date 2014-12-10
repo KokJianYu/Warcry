@@ -299,6 +299,8 @@ player2SkillPower = 0;*/</code>
     <instance objName="ball" x="800" y="416" name="inst_CEEC96E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ball" x="800" y="320" name="inst_A7D754CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ball" x="800" y="512" name="inst_6DC3B3F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_power_up" x="608" y="256" name="inst_E50E9F6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_power_up" x="640" y="256" name="inst_424EE8D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
