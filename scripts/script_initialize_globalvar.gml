@@ -11,8 +11,19 @@ globalvar player2SkillPower;
 globalvar player1Lives;
 globalvar player2Lives;
 
+//Keep track of player characters
+globalvar player1Character;
+globalvar player2Character;
+
+//Keep track of player damage taken
+globalvar player1TotalDamageTaken;
+globalvar player2TotalDamageTaken;
+
+player1TotalDamageTaken = 0;
+player2TotalDamageTaken = 0;
+
 //Keep track of sprites
 globalvar spriteArray;
-global.spriteArray[0] = sprite_lodin;
-global.spriteArray[1] = sprite_manta;
-global.spriteArray[2] = sprite_hazes;
+global.spriteArray[LODIN] = sprite_lodin;
+global.spriteArray[MANTA] = sprite_manta;
+global.spriteArray[EVA] = sprite_eva;

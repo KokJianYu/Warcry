@@ -27,19 +27,24 @@
     //Ensure that block only work when user face the ball when blocking.
     //if(collidingCharacter.direction-90>direction - 180 && collidingCharacter.directionOfCollision+90<collidingCharacter.direction+180)
       //  block = 1;
-    var damageReceived = (speed/maxSpeed)*40*collidingCharacter.block;
-    collidingCharacter.damage += damageReceived;
-    collidingCharacter.skillPower += damageReceived;
-    if(collidingCharacter.skillPower >= 100){
-        collidingCharacter.skillPower = 100;
-    }
+
+    var damageReceived = (speed/maxSpeed)*40*collidingCharacter.block*damageMultiplier;
+
     //collidingCharacter.directionOfCollision = point_direction(0,0,0+hspeed,0+vspeed);
     //Call the collision method for both the balls.
     collision(self,cuVx,cuVy,Vx,Vy,true);
     collision(collidingCharacter,-cuVx,-cuVy,-Vx,-Vy,false);
     collidingCharacter.directionOfCollision = radtodeg(arctan2(-(collidingCharacter.ySpeed),collidingCharacter.xSpeed));
     collidedByCharacter = true;
-    
+
+    if(!collidingCharacter.invulnerable){
+        collidingCharacter.damage += damageReceived;
+        collidingCharacter.skillPower += damageReceived;
+        if(collidingCharacter.skillPower >= 100){
+            collidingCharacter.skillPower = 100;
+       }
+    }
+        
     script_get_gamepad_input(collidingCharacter.CONTROLLER_NUM);
     if(point_distance(0,0,xAxis,yAxis)>= 0.25)
     {

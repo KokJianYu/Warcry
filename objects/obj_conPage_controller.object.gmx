@@ -34,7 +34,7 @@ tIndex = 1;
 lIndex = 0;
 bIndex = 0;
 
-alarm[0] = 7;
+//alarm[0] = 7;
 </string>
           </argument>
         </arguments>
@@ -57,7 +57,7 @@ alarm[0] = 7;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(gamepad_button_check(0, gp_padd)){
+            <string>if(gamepad_button_check_pressed(0, gp_padd)){
     if(control = "Timer"){
         control = "Lives";
         tIndex -= 1;
@@ -75,7 +75,7 @@ alarm[0] = 7;
     }
 }
 
-if(gamepad_button_check(0, gp_padu)){
+if(gamepad_button_check_pressed(0, gp_padu)){
     if(control = "Timer"){
         control = "Balls";
         tIndex -= 1;
@@ -93,7 +93,7 @@ if(gamepad_button_check(0, gp_padu)){
     }
 }
 
-if(gamepad_button_check(0, gp_padr)){
+if(gamepad_button_check_pressed(0, gp_padr)){
     if(control = "Timer"){
         if(timeOption = "60"){
             timeOption = "90";
@@ -134,7 +134,7 @@ if(gamepad_button_check(0, gp_padr)){
     }
 }
 
-if(gamepad_button_check(0, gp_padl)){
+if(gamepad_button_check_pressed(0, gp_padl)){
      if(control = "Timer"){
         if(timeOption = "60"){
             timeOption = "120";
@@ -198,15 +198,140 @@ alarm[0] = 7;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-    if(gamepad_button_check_pressed(0, gp_start)){
-        //TODO: 
-        global.timer = real(timeOption);
-        global.nLives = real(livesOption);
-        global.nBalls = real(ballsOption);
-        
-        room_goto(room_game);
+            <string>if(gamepad_button_check_pressed(0, gp_start)){
+    //TODO: 
+    global.timer = real(timeOption);
+    global.nLives = real(livesOption);
+    global.nBalls = real(ballsOption);
+    
+    room_goto(room_select_character);
+}
+
+if(gamepad_button_check_pressed(0, gp_padd)){
+    if(control = "Timer"){
+        control = "Lives";
+        tIndex -= 1;
+        lIndex += 1;
+    }else
+    if(control = "Lives"){
+        control = "Balls";
+        lIndex -= 1;
+        bIndex += 1;
+    }else
+    if(control = "Balls"){
+        control = "Timer";
+        bIndex -= 1;
+        tIndex += 1;
     }
+}
+
+if(gamepad_button_check_pressed(0, gp_padu)){
+    if(control = "Timer"){
+        control = "Balls";
+        tIndex -= 1;
+        bIndex += 1;
+    }else
+    if(control = "Lives"){
+        control = "Timer";
+        lIndex -= 1;
+        tIndex += 1;
+    }else
+    if(control = "Balls"){
+        control = "Lives";
+        bIndex -= 1;
+        lIndex += 1;
+    }
+}
+
+if(gamepad_button_check_pressed(0, gp_padr)){
+    if(control = "Timer"){
+        if(timeOption = "60"){
+            timeOption = "90";
+        }else
+        if(timeOption = "90"){
+            timeOption = "120";
+        }else
+        if(timeOption = "120"){
+            timeOption = "60";
+        }
+        tIndex += 2;
+    }
+    
+    if(control = "Lives"){
+        if(livesOption = "5"){
+            livesOption = "8";
+        }else
+        if(livesOption = "8"){
+            livesOption = "12";
+        }else
+        if(livesOption = "12"){
+            livesOption = "5";
+        }
+        lIndex += 2;
+    }
+    
+    if(control = "Balls"){
+        if(ballsOption = "3"){
+            ballsOption = "5";
+        }else
+        if(ballsOption = "5"){
+            ballsOption = "8";
+        }else
+        if(ballsOption = "8"){
+            ballsOption = "3";
+        }
+        bIndex +=2;
+    }
+}
+
+if(gamepad_button_check_pressed(0, gp_padl)){
+     if(control = "Timer"){
+        if(timeOption = "60"){
+            timeOption = "120";
+        }else
+        if(timeOption = "120"){
+            timeOption = "90";
+        }else
+        if(timeOption = "90"){
+            timeOption = "60";
+        }
+        tIndex -= 2;
+    }
+    
+    if(control = "Lives"){
+        if(livesOption = "5"){
+            livesOption = "12";
+        }else
+        if(livesOption = "12"){
+            livesOption = "8";
+        }else
+        if(livesOption = "8"){
+            livesOption = "5";
+        }
+        lIndex -= 2;
+    }
+    
+    if(control = "Balls"){
+        if(ballsOption = "3"){
+            ballsOption = "8";
+        }else
+        if(ballsOption = "8"){
+            ballsOptions = "5";
+        }else
+        if(ballsOption = "5"){
+            ballsOption = "3";
+        }
+        bIndex -= 2;
+    }
+}
+
+if(tIndex == -1)
+    tIndex = 5;
+if(lIndex == -1)
+    lIndex = 5;
+if(bIndex == -1)
+    bIndex = 5;
+
 
 if(gamepad_button_check_pressed(0, gp_face2)){
     if(control = "Timer"){
@@ -248,9 +373,9 @@ draw_sprite(spr_conPage_Title, 0, room_width/2, room_height/2-260);
 draw_sprite(bck_conPage_backdrop, 0, room_width/2+12, room_height/2+20);
  
 //Decides the display according to the option
-    draw_sprite(sprite_timer, tIndex, room_width/2+175, 360 - 80);
-    draw_sprite(sprite_lives, lIndex, room_width/2-50, 360+20);
-    draw_sprite(sprite_balls, bIndex, room_width/2-50, 360 + 120);
+draw_sprite(sprite_timer, tIndex, room_width/2+175, 360 - 80);
+draw_sprite(sprite_lives, lIndex, room_width/2-50, 360+20);
+draw_sprite(sprite_balls, bIndex, room_width/2-50, 360 + 120);
 
 </string>
           </argument>

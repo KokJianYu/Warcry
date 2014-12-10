@@ -32,6 +32,65 @@ global.player1Lives = global.nLives;
 global.player2Lives = global.nLives;
 
 alarm[0] = 600;
+
+for(i = 0; i &lt; global.nBalls;i++)
+{
+    instance_create(random_range(576,672),random_range(96,576),ball);
+}
+gameTimer = global.timer;
+alarm[1] = global.timer*60;
+alarm[2] = 60;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>gameTimer--;
+alarm[2] = 60;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.player1TotalDamageTaken += instance_find(obj_player,0).damage;
+global.player2TotalDamageTaken += instance_find(obj_player2,0).damage;
+room_goto(room_game_end);
 </string>
           </argument>
         </arguments>
@@ -81,6 +140,13 @@ alarm[0] = irandom_range(300,900);
             <string>if(gamepad_button_check_pressed(0,gp_start)){
     instance_create(x,y,obj_pause_menu_controller);
 }
+
+if((global.player1Lives &lt;= 0 || global.player2Lives &lt;=0))
+{   
+    global.player1TotalDamageTaken += instance_find(obj_player,0).damage;
+    global.player2TotalDamageTaken += instance_find(obj_player2,0).damage;
+    room_goto(room_game_end);
+}
 </string>
           </argument>
         </arguments>
@@ -103,104 +169,26 @@ alarm[0] = irandom_range(300,900);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_black);
+            <string>draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_font(font_game_room);
+draw_text(room_width/2,64,gameTimer);
+
+var i;
+for(i = 0;i&lt;global.player1Lives;i++)
+{
+    var col = i%5; //Each col 5 heart
+    var row = floor(i/5); //At every number 6th heart, go to next row.
+    draw_sprite(sprite_heart,0,96+16*col,96+16*row);
+}
+
+for(i = 0;i&lt;global.player2Lives;i++)
+{
+    var col = i%5; //Each col 5 heart
+    var row = floor(i/5); //At every number 6th heart, go to next row.
+    draw_sprite(sprite_heart,0,1152-16*col,96+16*row);
+}
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>711</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>global.player1Lives</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>713</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>96</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>112</string>
-          </argument>
-          <argument>
-            <kind>1</kind>
-            <string>Lives: </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>711</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>global.player2Lives</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>713</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>1152</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>112</string>
-          </argument>
-          <argument>
-            <kind>1</kind>
-            <string>Lives: </string>
           </argument>
         </arguments>
       </action>

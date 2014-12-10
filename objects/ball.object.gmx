@@ -41,6 +41,8 @@ ballCollidedWithId = -1;
 direction = irandom_range(0,360);
 
 powerup = -1;
+
+damageMultiplier = 1;
 </string>
           </argument>
         </arguments>
@@ -67,6 +69,7 @@ powerup = -1;
 switch(powerup)
 {
     case FIRE_POWER_UP:
+        damageMultiplier = 1;
         break;
     case EARTH_POWER_UP:
         mass *= 0.5;
@@ -226,6 +229,7 @@ if(powerup != -1)
     switch(self.powerup)
     {
         case FIRE_POWER_UP:
+            damageMultiplier = 2;
             break;
         case EARTH_POWER_UP:
             mass *= 2;

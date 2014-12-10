@@ -27,6 +27,14 @@
             <kind>1</kind>
             <string>powerup = irandom_range(10,12);
 
+if(powerup == FIRE_POWER_UP)
+    sprite_index = sprite_red;
+else if(powerup == WIND_POWER_UP)
+    sprite_index = sprite_cyan;
+else if(powerup == EARTH_POWER_UP)
+    sprite_index = sprite_brown;
+    
+
 </string>
           </argument>
         </arguments>

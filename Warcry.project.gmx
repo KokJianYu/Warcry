@@ -12,11 +12,20 @@
   <sprites name="sprites">
     <sprites name="Heroes">
       <sprite>sprites\sprite_lodin</sprite>
-      <sprite>sprites\sprite_hazes</sprite>
+      <sprite>sprites\sprite_manta</sprite>
+      <sprite>sprites\sprite_eva</sprite>
       <sprite>sprites\sprite_player2</sprite>
       <sprite>sprites\sprite_player</sprite>
+      <sprites name="Heroes Info">
+        <sprite>sprites\sprite_LodinInfo</sprite>
+        <sprite>sprites\sprite_MantaInfo</sprite>
+        <sprite>sprites\sprite_EvaInfo</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tiles">
+      <sprite>sprites\sprite_red</sprite>
+      <sprite>sprites\sprite_brown</sprite>
+      <sprite>sprites\sprite_cyan</sprite>
       <sprite>sprites\deathFloor</sprite>
       <sprite>sprites\diagonalFloor</sprite>
       <sprite>sprites\diagonalDeathFloor</sprite>
@@ -30,11 +39,10 @@
       <sprite>sprites\sprite_ball</sprite>
       <sprite>sprites\sprite_yellowBall</sprite>
       <sprite>sprites\sprite_redBall</sprite>
-      <sprite>sprites\sprite_earth_power_up</sprite>
     </sprites>
     <sprite>sprites\sprite_laser</sprite>
+    <sprite>sprites\sprite_heart</sprite>
     <sprite>sprites\sprite_hLaser</sprite>
-    <sprite>sprites\sprite_barrier</sprite>
     <sprite>sprites\sprite_laserTower</sprite>
     <sprite>sprites\sprite_dLaser</sprite>
     <sprites name="Main Menu">
@@ -52,6 +60,16 @@
       <sprite>sprites\sprite_balls</sprite>
       <sprite>sprites\sprite_lives</sprite>
       <sprite>sprites\sprite_timer</sprite>
+    </sprites>
+    <sprites name="Effects">
+      <sprite>sprites\sprite_barrier</sprite>
+      <sprite>sprites\sprite_invul_barrier</sprite>
+      <sprite>sprites\sprite_warp</sprite>
+    </sprites>
+    <sprites name="Selection Menu">
+      <sprite>sprites\sprite_selection_box1</sprite>
+      <sprite>sprites\sprite_selection_box2</sprite>
+      <sprite>sprites\sprite_ready</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -74,8 +92,13 @@
     <script>scripts\script_power_up_effect.gml</script>
     <script>scripts\script_rotate_player.gml</script>
     <script>scripts\script_throw_ball.gml</script>
+    <script>scripts\script_game_end.gml</script>
     <script>scripts\script_initialize_globalvar.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_game_end</font>
+    <font>fonts\font_game_room</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_power_up</object>
     <object>objects\obj_laserTower</object>
@@ -89,6 +112,7 @@
     <object>objects\ball</object>
     <objects name="Heroes">
       <object>objects\obj_player</object>
+      <object>objects\obj_player200</object>
       <object>objects\obj_player2</object>
     </objects>
     <objects name="Main Menu">
@@ -107,17 +131,24 @@
     <objects name="Character Selection Page">
       <object>objects\obj_chaSelPage_controller</object>
     </objects>
+    <objects name="Game End">
+      <object>objects\obj_game_end</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
     <room>rooms\room_conPage</room>
     <room>rooms\room_select_character</room>
     <room>rooms\room_game</room>
+    <room>rooms\room_game_end</room>
   </rooms>
-  <constants number="3">
+  <constants number="6">
     <constant name="FIRE_POWER_UP">10</constant>
     <constant name="EARTH_POWER_UP">11</constant>
     <constant name="WIND_POWER_UP">12</constant>
+    <constant name="LODIN">0</constant>
+    <constant name="MANTA">1</constant>
+    <constant name="EVA">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
