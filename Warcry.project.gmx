@@ -67,6 +67,8 @@
       <sprite>sprites\sprite_selection_box2</sprite>
       <sprite>sprites\sprite_ready</sprite>
     </sprites>
+    <sprite>sprites\sprite_button_press</sprite>
+    <sprite>sprites\sprite_button_o</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_space</background>
@@ -90,6 +92,9 @@
     <script>scripts\script_throw_ball.gml</script>
     <script>scripts\script_initialize_globalvar.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_game_end</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_laserTower</object>
     <object>objects\obj_dWall</object>
@@ -120,11 +125,14 @@
     <objects name="Character Selection Page">
       <object>objects\obj_chaSelPage_controller</object>
     </objects>
+    <object>objects\obj_btn_press</object>
+    <object>objects\obj_btn_o</object>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\room_menu</room>
-    <room>rooms\room_select_character</room>
     <room>rooms\room_conPage</room>
+    <room>rooms\room_select_character</room>
     <room>rooms\room_game</room>
   </rooms>
   <constants number="3">
