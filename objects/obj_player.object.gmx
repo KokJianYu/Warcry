@@ -54,6 +54,7 @@ movementSpeed = 4;
 
 character = 1;
 skillActive = false;
+
 </string>
           </argument>
         </arguments>
@@ -160,10 +161,6 @@ if(gamepad_button_check(CONTROLLER_NUM, gp_shoulderrb) &amp;&amp; skillPower &gt
     script_character_skill(character);   
     skillPower = 0;
 }
-if(skillActive)
-{
-    script_character_skill_effects(character);
-}
 
 </string>
           </argument>
@@ -229,7 +226,7 @@ if(skillActive)
             <kind>1</kind>
             <string>global.player1SkillPower = skillPower;
 script_recreate_player(192,320,obj_player);
-global.player2Score += 1;
+global.player1Lives -= 1;
 //alarm[10] = 60*5;
 </string>
           </argument>
@@ -295,7 +292,7 @@ global.player2Score += 1;
             <kind>1</kind>
             <string>global.player1SkillPower = skillPower;
 script_recreate_player(192,320,obj_player);
-global.player2Score += 1;
+global.player1Lives -= 1;
 //alarm[10] = 60*5;
 </string>
           </argument>
@@ -361,7 +358,7 @@ global.player2Score += 1;
             <kind>1</kind>
             <string>global.player1SkillPower = skillPower;
 script_recreate_player(192,320,obj_player);
-global.player2Score += 1;
+global.player1Lives -= 1;
 //alarm[10] = 60*5;
 </string>
           </argument>
@@ -411,6 +408,11 @@ if(gamepad_button_check(CONTROLLER_NUM,gp_shoulderlb))
 }
 else
     draw_sprite_ext(sprite_hazes,0,x,y,image_xscale,image_yscale,image_angle,c_white,1);
+
+if(skillActive)
+{
+    script_character_skill_effects(character);
+}
 
 </string>
           </argument>

@@ -25,12 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.player1Score = 0;
-global.player2Score = 0;
-
-global.player1SkillPower = 0;
+            <string>global.player1SkillPower = 0;
 global.player2SkillPower = 0;
  
+global.player1Lives = global.nLives;
+global.player2Lives = global.nLives;
 </string>
           </argument>
         </arguments>
@@ -85,13 +84,13 @@ global.player2SkillPower = 0;
       </action>
       <action>
         <libid>1</libid>
-        <id>701</id>
+        <id>711</id>
         <kind>0</kind>
         <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>0</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_set_score</functionname>
+        <functionname>action_set_life</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
@@ -99,19 +98,19 @@ global.player2SkillPower = 0;
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>global.player1Score</string>
+            <string>global.player1Lives</string>
           </argument>
         </arguments>
       </action>
       <action>
         <libid>1</libid>
-        <id>703</id>
+        <id>713</id>
         <kind>0</kind>
         <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>0</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_draw_score</functionname>
+        <functionname>action_draw_life</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
@@ -127,19 +126,19 @@ global.player2SkillPower = 0;
           </argument>
           <argument>
             <kind>1</kind>
-            <string>Score: </string>
+            <string>Lives: </string>
           </argument>
         </arguments>
       </action>
       <action>
         <libid>1</libid>
-        <id>701</id>
+        <id>711</id>
         <kind>0</kind>
         <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>0</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_set_score</functionname>
+        <functionname>action_set_life</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
@@ -147,19 +146,19 @@ global.player2SkillPower = 0;
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>global.player2Score</string>
+            <string>global.player2Lives</string>
           </argument>
         </arguments>
       </action>
       <action>
         <libid>1</libid>
-        <id>703</id>
+        <id>713</id>
         <kind>0</kind>
         <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>0</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_draw_score</functionname>
+        <functionname>action_draw_life</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
@@ -175,7 +174,7 @@ global.player2SkillPower = 0;
           </argument>
           <argument>
             <kind>1</kind>
-            <string>Score: </string>
+            <string>Lives: </string>
           </argument>
         </arguments>
       </action>
